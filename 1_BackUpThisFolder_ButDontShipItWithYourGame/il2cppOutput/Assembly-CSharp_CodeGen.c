@@ -58,7 +58,15 @@ extern void Car_Update_m564142FBDB4611544F57A4AEA214D2036A6BBA78 (void);
 extern void Car_FixedUpdate_m33514D48A337CF56B9D6ACA338D1EE905E795993 (void);
 // 0x00000017 System.Void Car::.ctor()
 extern void Car__ctor_m2C9B68B7B9DC98BEECA5ABA074092ECBDD5ACA1D (void);
-static Il2CppMethodPointer s_methodPointers[23] = 
+// 0x00000018 System.Void AxleInfo::.ctor()
+extern void AxleInfo__ctor_m6AEBB35270D53694D8D51B412507D9A53E7CFC08 (void);
+// 0x00000019 System.Void SimpleCarController::ApplyLocalPositionToVisuals(UnityEngine.WheelCollider)
+extern void SimpleCarController_ApplyLocalPositionToVisuals_m35D13CADFBD0D8CAE6FBE9B839AF48C841E83BDD (void);
+// 0x0000001A System.Void SimpleCarController::FixedUpdate()
+extern void SimpleCarController_FixedUpdate_m3A304260EEB49E004B9EA979D1E3F6BBC5972268 (void);
+// 0x0000001B System.Void SimpleCarController::.ctor()
+extern void SimpleCarController__ctor_mA98893572317F3EC1A30301D0A0C2BD2FB6ECFB9 (void);
+static Il2CppMethodPointer s_methodPointers[27] = 
 {
 	AnchorCreator_get_AnchorPrefab_mBBAF7805E9D9F8D79408EE642D153BC76306B25A,
 	AnchorCreator_set_AnchorPrefab_m53CC9CC3022C713826B44536B48B462C8A1FACFF,
@@ -83,8 +91,12 @@ static Il2CppMethodPointer s_methodPointers[23] =
 	Car_Update_m564142FBDB4611544F57A4AEA214D2036A6BBA78,
 	Car_FixedUpdate_m33514D48A337CF56B9D6ACA338D1EE905E795993,
 	Car__ctor_m2C9B68B7B9DC98BEECA5ABA074092ECBDD5ACA1D,
+	AxleInfo__ctor_m6AEBB35270D53694D8D51B412507D9A53E7CFC08,
+	SimpleCarController_ApplyLocalPositionToVisuals_m35D13CADFBD0D8CAE6FBE9B839AF48C841E83BDD,
+	SimpleCarController_FixedUpdate_m3A304260EEB49E004B9EA979D1E3F6BBC5972268,
+	SimpleCarController__ctor_mA98893572317F3EC1A30301D0A0C2BD2FB6ECFB9,
 };
-static const int32_t s_InvokerIndices[23] = 
+static const int32_t s_InvokerIndices[27] = 
 {
 	5649,
 	4603,
@@ -109,12 +121,16 @@ static const int32_t s_InvokerIndices[23] =
 	5746,
 	5746,
 	5746,
+	5746,
+	4603,
+	5746,
+	5746,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	23,
+	27,
 	s_methodPointers,
 	0,
 	NULL,
