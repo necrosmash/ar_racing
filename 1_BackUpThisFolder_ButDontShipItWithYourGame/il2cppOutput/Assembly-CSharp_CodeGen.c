@@ -50,7 +50,23 @@ extern void AR_Cursor_Start_m2471DF2468DF758EF0ECE2D970EF96D58F3CE16C (void);
 extern void AR_Cursor_Update_m5DFE1BC350D1EB015BBC62269C4C3115E9BF353A (void);
 // 0x00000013 System.Void AR_Cursor::.ctor()
 extern void AR_Cursor__ctor_m52481EA506FA2F27DD4A30C7A7160E315F4D8E6F (void);
-static Il2CppMethodPointer s_methodPointers[19] = 
+// 0x00000014 System.Void Car::Start()
+extern void Car_Start_m673B184D48D141DC9171707C078F4B3A9B793E31 (void);
+// 0x00000015 System.Void Car::Update()
+extern void Car_Update_m564142FBDB4611544F57A4AEA214D2036A6BBA78 (void);
+// 0x00000016 System.Void Car::FixedUpdate()
+extern void Car_FixedUpdate_m33514D48A337CF56B9D6ACA338D1EE905E795993 (void);
+// 0x00000017 System.Void Car::.ctor()
+extern void Car__ctor_m2C9B68B7B9DC98BEECA5ABA074092ECBDD5ACA1D (void);
+// 0x00000018 System.Void AxleInfo::.ctor()
+extern void AxleInfo__ctor_m6AEBB35270D53694D8D51B412507D9A53E7CFC08 (void);
+// 0x00000019 System.Void SimpleCarController::ApplyLocalPositionToVisuals(UnityEngine.WheelCollider)
+extern void SimpleCarController_ApplyLocalPositionToVisuals_m35D13CADFBD0D8CAE6FBE9B839AF48C841E83BDD (void);
+// 0x0000001A System.Void SimpleCarController::FixedUpdate()
+extern void SimpleCarController_FixedUpdate_m3A304260EEB49E004B9EA979D1E3F6BBC5972268 (void);
+// 0x0000001B System.Void SimpleCarController::.ctor()
+extern void SimpleCarController__ctor_mA98893572317F3EC1A30301D0A0C2BD2FB6ECFB9 (void);
+static Il2CppMethodPointer s_methodPointers[27] = 
 {
 	AnchorCreator_get_AnchorPrefab_mBBAF7805E9D9F8D79408EE642D153BC76306B25A,
 	AnchorCreator_set_AnchorPrefab_m53CC9CC3022C713826B44536B48B462C8A1FACFF,
@@ -71,34 +87,50 @@ static Il2CppMethodPointer s_methodPointers[19] =
 	AR_Cursor_Start_m2471DF2468DF758EF0ECE2D970EF96D58F3CE16C,
 	AR_Cursor_Update_m5DFE1BC350D1EB015BBC62269C4C3115E9BF353A,
 	AR_Cursor__ctor_m52481EA506FA2F27DD4A30C7A7160E315F4D8E6F,
+	Car_Start_m673B184D48D141DC9171707C078F4B3A9B793E31,
+	Car_Update_m564142FBDB4611544F57A4AEA214D2036A6BBA78,
+	Car_FixedUpdate_m33514D48A337CF56B9D6ACA338D1EE905E795993,
+	Car__ctor_m2C9B68B7B9DC98BEECA5ABA074092ECBDD5ACA1D,
+	AxleInfo__ctor_m6AEBB35270D53694D8D51B412507D9A53E7CFC08,
+	SimpleCarController_ApplyLocalPositionToVisuals_m35D13CADFBD0D8CAE6FBE9B839AF48C841E83BDD,
+	SimpleCarController_FixedUpdate_m3A304260EEB49E004B9EA979D1E3F6BBC5972268,
+	SimpleCarController__ctor_mA98893572317F3EC1A30301D0A0C2BD2FB6ECFB9,
 };
-static const int32_t s_InvokerIndices[19] = 
+static const int32_t s_InvokerIndices[27] = 
 {
-	5648,
-	4602,
-	5745,
-	5745,
-	5745,
-	5745,
-	8978,
-	5689,
-	4634,
-	5745,
-	5745,
-	5745,
-	4484,
-	4602,
-	5745,
-	8978,
-	5745,
-	5745,
-	5745,
+	5649,
+	4603,
+	5746,
+	5746,
+	5746,
+	5746,
+	8979,
+	5690,
+	4635,
+	5746,
+	5746,
+	5746,
+	4485,
+	4603,
+	5746,
+	8979,
+	5746,
+	5746,
+	5746,
+	5746,
+	5746,
+	5746,
+	5746,
+	5746,
+	4603,
+	5746,
+	5746,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	19,
+	27,
 	s_methodPointers,
 	0,
 	NULL,
