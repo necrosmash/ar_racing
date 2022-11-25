@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6fc4a27b4b07a4984227cb879f4cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToPlace: {fileID: 7414126791596113512, guid: fe573e7abb8af466791f07600c0785e3,
+  carPrefab: {fileID: 6884287814182427005, guid: c26e1d585d16f9040887f2120ba18c9f,
     type: 3}
   raycastManager: {fileID: 388525033}
 --- !u!4 &212175866532230322
