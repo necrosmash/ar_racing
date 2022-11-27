@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 [System.Serializable]
 public class AxleInfo
@@ -22,18 +23,26 @@ public class SimpleCarController : MonoBehaviour
 
     public float gravityMultiplier = -0.8f;
 
+    
     public bool IsGrounded()
     {
+        // This does not work, would be nice though.
+        /*// if left whe isGrounded or right wheel isGrounded
+        if (axleInfos[0].leftWheel.isGrounded || axleInfos[0].rightWheel.isGrounded)
+        {
+            // return true
+            return true;
+        }*/
+
         foreach (AxleInfo axleInfo in axleInfos)
         {
-            if (!Physics.Raycast(axleInfo.leftWheel.transform.position, -Vector3.up, groundedRaycastDistance))
+            if (Physics.Raycast(axleInfo.leftWheel.transform.position, -Vector3.up, groundedRaycastDistance))
             {
                 return false;
             }
         }
         return true;
     }
-
 
     // finds the corresponding visual wheel
     // correctly applies the transform
@@ -61,26 +70,26 @@ public class SimpleCarController : MonoBehaviour
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
         float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
 
-        grounded = IsGrounded();
-        
-        foreach (AxleInfo axleInfo in axleInfos)
-        {
-            if (axleInfo.steering)
-            {
-                axleInfo.leftWheel.steerAngle = steering;
-                axleInfo.rightWheel.steerAngle = steering;
-            }
-            if (axleInfo.motor)
-            {
-                axleInfo.leftWheel.motorTorque = motor;
-                axleInfo.rightWheel.motorTorque = motor;
-            }
-            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
-        }
+        grounded = IsGrounded();            
 
-        if (!grounded)
+        if (grounded)
         {
+            foreach (AxleInfo axleInfo in axleInfos)
+            {
+                if (axleInfo.steering)
+                {
+                    axleInfo.leftWheel.steerAngle = steering;
+                    axleInfo.rightWheel.steerAngle = steering;
+                }
+                if (axleInfo.motor)
+                {
+                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = motor;
+                }
+                ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+                ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            }
+
             // Apply gravity multiplier to rigidbody
             //GetComponent<Rigidbody>().AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
 
@@ -89,6 +98,17 @@ public class SimpleCarController : MonoBehaviour
             // steer left and right
             //GetComponent<Rigidbody>().AddTorque(transform.up * steering, ForceMode.Acceleration);
             //GetComponent<Rigidbody>().useGravity = false;
+        }
+        else
+        {
+            // This does not work yet
+            GetComponent<Rigidbody>().useGravity = false;
+
+            // Modify gravity
+            GetComponent<Rigidbody>().AddForce(Physics.gravity * GetComponent<Rigidbody>().mass * 0.2f, ForceMode.Acceleration);
+
+            // Apply forward force
+            GetComponent<Rigidbody>().AddForce(transform.forward * motor, ForceMode.Acceleration);
         }
 
     }
