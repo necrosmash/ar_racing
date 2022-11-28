@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using PathCreation.Utility;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace PathCreation.Examples {
@@ -21,14 +22,24 @@ namespace PathCreation.Examples {
         MeshFilter meshFilter;
         MeshRenderer meshRenderer;
         Mesh mesh;
-
+        
+        // Mine
+        MeshCollider meshCollider;
+        // Get the mesh collider from the object
+        
+            
         protected override void PathUpdated () {
             if (pathCreator != null) {
                 AssignMeshComponents ();
                 AssignMaterials ();
                 CreateRoadMesh ();
+                // Project - Simply set the mesh to the collider when updating the path.
+                meshCollider.sharedMesh = mesh;
+
             }
         }
+
+
 
         void CreateRoadMesh () {
             Vector3[] verts = new Vector3[path.NumPoints * 8];
@@ -115,6 +126,9 @@ namespace PathCreation.Examples {
             mesh.SetTriangles (underRoadTriangles, 1);
             mesh.SetTriangles (sideOfRoadTriangles, 2);
             mesh.RecalculateBounds ();
+
+            // PROJECT - Get the mesh collider from the object child
+            meshCollider = GetComponentInChildren<MeshCollider>();
         }
 
         // Add MeshRenderer and MeshFilter components to this gameobject if not already attached
