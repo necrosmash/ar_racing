@@ -19,11 +19,33 @@ public class SimpleCarController : MonoBehaviour
     public float maxSteeringAngle;
 
     public bool grounded = false;
-    public float groundedRaycastDistance = 0.5f;
+    public float groundedRaycastDistance = 0.2f;
 
     public float gravityMultiplier = -0.8f;
+    float force = 0.5f;
+    Vector3 airDirection;
 
+    // car orientation
+    public float carOrientationX;
+    public float carOrientationY;
+    public float carOrientationZ;
+
+    // car rotation
+    public float carRotationX;
+    public float carRotationY;
+    public float carRotationZ;
+
+    public Rigidbody carRigidbody;
     
+
+    public void Start()
+    {
+
+        carRigidbody = GetComponent<Rigidbody>();
+        // maxMotorTorque = 300;
+        // maxSteeringAngle = 30;
+    }
+
     public bool IsGrounded()
     {
         // This does not work, would be nice though.
@@ -69,12 +91,12 @@ public class SimpleCarController : MonoBehaviour
     {
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
         float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-
-        grounded = IsGrounded();            
+        /*
+        grounded = IsGrounded();
 
         if (grounded)
-        {
-            foreach (AxleInfo axleInfo in axleInfos)
+        { }*/
+        foreach (AxleInfo axleInfo in axleInfos)
             {
                 if (axleInfo.steering)
                 {
@@ -90,26 +112,67 @@ public class SimpleCarController : MonoBehaviour
                 ApplyLocalPositionToVisuals(axleInfo.rightWheel);
             }
 
-            // Apply gravity multiplier to rigidbody
-            //GetComponent<Rigidbody>().AddForce(Physics.gravity * gravityMultiplier, ForceMode.Acceleration);
+        // Used in the pitch rotation, if used then move to the function declation zone.
+        // float roll = 0;
 
-            //GetComponent<Rigidbody>().AddForce(transform.forward * motor, ForceMode.Acceleration);
-
-            // steer left and right
-            //GetComponent<Rigidbody>().AddTorque(transform.up * steering, ForceMode.Acceleration);
-            //GetComponent<Rigidbody>().useGravity = false;
-        }
-        else
+        // else
+        // make the car glide if space is pressed.
+        if (Input.GetKey(KeyCode.Space))
         {
-            // This does not work yet
-            GetComponent<Rigidbody>().useGravity = false;
+            // Attempt at making it work through pitch rotation, got annoyed, try again later.
+            /*// Counteract gravity
+            carRigidbody.AddForce(transform.up * 9.1f, ForceMode.Acceleration);
+            carRigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
 
-            // Modify gravity
-            GetComponent<Rigidbody>().AddForce(Physics.gravity * GetComponent<Rigidbody>().mass * 0.2f, ForceMode.Acceleration);
+            // Get roll angle from the steering wheel
+            roll = -steering * 0.01f;
 
-            // Apply forward force
-            GetComponent<Rigidbody>().AddForce(transform.forward * motor, ForceMode.Acceleration);
+            // Get the car's current rotation
+            carRotationX = transform.rotation.eulerAngles.x;
+            carRotationY = transform.rotation.eulerAngles.y;
+
+            carRotationX += roll;
+            carRotationY += roll;
+
+            // Apply the new rotation
+            transform.rotation = Quaternion.Euler(carRotationX, carRotationY, 0);
+
+            // Apply the new orientation
+            transform.forward = new Vector3(carOrientationX, carOrientationY, 0);*/
+
+
+                                // Works but not great
+            
+            // Counteract gravity
+            carRigidbody.AddForce(transform.up * 9.1f, ForceMode.Acceleration);
+            // Freeze the z rotation so that the car does not roll forwards
+            carRigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
+
+            // Dampen the car's rotation in the z axis, neither of these methods work well. 
+            // carRigidbody.angularVelocity = new Vector3(0, 0, carRigidbody.angularVelocity.z * 0.9f);
+            //carRigidbody.angularVelocity = Vector3.Lerp(carRigidbody.angularVelocity, Vector3.zero, Time.deltaTime * 3);
+
+            // Make the car turn using steering
+            carRigidbody.AddTorque(transform.up * steering * 0.05f, ForceMode.Acceleration);
+
+            // Make the car accelerate in the direction it is facing
+            carRigidbody.AddForce(transform.forward * motor * 0.02f, ForceMode.Acceleration);
         }
+
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            // Disactivated so that both shift and space bar are not pressed at the same time. 
+            carRigidbody.AddForce(transform.up * 0.5f, ForceMode.Acceleration);
+            
+            // Make car spin like a beyblade
+            carRigidbody.AddTorque(transform.up * steering * 0.2f, ForceMode.Impulse);
+
+            // Make car move forwards.
+            carRigidbody.AddForce(transform.forward * 2f, ForceMode.Acceleration);
+        }
+        // Unfreeeze rotation so the car can drive properly again.
+        carRigidbody.constraints = RigidbodyConstraints.None;
 
     }
 }
