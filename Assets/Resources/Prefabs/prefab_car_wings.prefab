@@ -720,9 +720,10 @@ GameObject:
   - component: {fileID: 5296173053406902572}
   - component: {fileID: 5296173053406902573}
   - component: {fileID: 5296173053406902574}
+  - component: {fileID: -4619822754491824472}
   m_Layer: 0
-  m_Name: car_root with wings
-  m_TagString: Untagged
+  m_Name: prefab_car_wings
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,7 +735,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5296173053406902575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0005853583, y: 0.027042976, z: 0.021632498, w: 0.9994}
   m_LocalPosition: {x: 3.61, y: 0.8, z: 3.64}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
@@ -745,7 +746,7 @@ Transform:
   - {fileID: 6881382748030474777}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 3.1, z: 2.48}
 --- !u!54 &5296173053406902573
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -785,6 +786,32 @@ MonoBehaviour:
     steering: 0
   maxMotorTorque: 60
   maxSteeringAngle: 30
+  grounded: 0
+  groundedRaycastDistance: 0.2
+  gravityMultiplier: -0.8
+  carOrientationX: 0
+  carOrientationY: 0
+  carOrientationZ: 0
+  carRotationX: 0
+  carRotationY: 0
+  carRotationZ: 0
+  carRigidbody: {fileID: 0}
+--- !u!114 &-4619822754491824472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296173053406902575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13287e3a902f1844f85c500b3b3185b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colours: []
+  coloursInUse: []
+  carColour: {r: 0, g: 0, b: 0, a: 0}
+  meshRenderer: {fileID: 0}
 --- !u!1 &6292644280709748591
 GameObject:
   m_ObjectHideFlags: 0

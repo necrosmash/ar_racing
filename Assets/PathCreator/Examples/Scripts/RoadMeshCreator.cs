@@ -23,11 +23,11 @@ namespace PathCreation.Examples {
         MeshRenderer meshRenderer;
         Mesh mesh;
         
-        // Mine
+        // Porject
         MeshCollider meshCollider;
-        // Get the mesh collider from the object
-        
-            
+        // get car_root_with_wings
+        GameObject car;
+
         protected override void PathUpdated () {
             if (pathCreator != null) {
                 AssignMeshComponents ();
@@ -39,7 +39,28 @@ namespace PathCreation.Examples {
             }
         }
 
+        // Project. 
+        void Start()
+        {
+            // if there are any prefab_car_wings clones in the scene, destroy them
+            foreach (GameObject car in GameObject.FindGameObjectsWithTag("Car"))
+            {
+                DestroyImmediate(car);
+            }
 
+            // get the car_root_with_wings object from the resources folder
+            car = Resources.Load("Prefabs/prefab_car_wings") as GameObject;
+
+            // The position of the first point on the path
+            Vector3 position = pathCreator.bezierPath.GetPoint(0);
+            // raise the position in the y axis by 0.1 so the car is not in the ground
+            position.y += 0.1f;
+
+            // Instantiate the car in the direction of the track
+            Instantiate(car, position, Quaternion.LookRotation(pathCreator.path.GetDirection(0)));
+        }
+
+        
 
         void CreateRoadMesh () {
             Vector3[] verts = new Vector3[path.NumPoints * 8];
@@ -127,7 +148,7 @@ namespace PathCreation.Examples {
             mesh.SetTriangles (sideOfRoadTriangles, 2);
             mesh.RecalculateBounds ();
 
-            // PROJECT - Get the mesh collider from the object child
+            // Project - Get the mesh collider from the object child
             meshCollider = GetComponentInChildren<MeshCollider>();
         }
 
