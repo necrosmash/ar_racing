@@ -22,18 +22,21 @@ public class SimpleCarController : MonoBehaviour
     public float groundedRaycastDistance = 0.2f;
 
     public float gravityMultiplier = -0.8f;
+    
+
+    /*
     float force = 0.5f;
     Vector3 airDirection;
-
+    
     // car orientation
-    public float carOrientationX;
-    public float carOrientationY;
-    public float carOrientationZ;
+    private float carOrientationX;
+    private float carOrientationY;
+    private float carOrientationZ;
 
     // car rotation
-    public float carRotationX;
-    public float carRotationY;
-    public float carRotationZ;
+    private float carRotationX;
+    private float carRotationY;
+    private float carRotationZ;*/
 
     public Rigidbody carRigidbody;
     
@@ -66,6 +69,26 @@ public class SimpleCarController : MonoBehaviour
         return true;
     }
 
+    
+    
+    public void Brake()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            // brake
+            foreach (AxleInfo axleInfo in axleInfos)
+            {
+                axleInfo.leftWheel.brakeTorque = 1000;
+                axleInfo.rightWheel.brakeTorque = 1000;
+            }
+        }
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            axleInfo.leftWheel.brakeTorque = 0;
+            axleInfo.rightWheel.brakeTorque = 0;
+        }
+    }
+
     // finds the corresponding visual wheel
     // correctly applies the transform
     public void ApplyLocalPositionToVisuals(WheelCollider collider)
@@ -96,6 +119,9 @@ public class SimpleCarController : MonoBehaviour
 
         if (grounded)
         { }*/
+        // Might be useful for drifting?
+        Brake();
+
         foreach (AxleInfo axleInfo in axleInfos)
             {
                 if (axleInfo.steering)
@@ -110,6 +136,8 @@ public class SimpleCarController : MonoBehaviour
                 }
                 ApplyLocalPositionToVisuals(axleInfo.leftWheel);
                 ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+
+            
             }
 
         // Used in the pitch rotation, if used then move to the function declation zone.
@@ -148,9 +176,9 @@ public class SimpleCarController : MonoBehaviour
             // Freeze the z rotation so that the car does not roll forwards
             carRigidbody.constraints = RigidbodyConstraints.FreezeRotationX;
 
-            // Dampen the car's rotation in the z axis, neither of these methods work well. 
+            /*// Dampen the car's rotation in the z axis, neither of these methods work well. 
             // carRigidbody.angularVelocity = new Vector3(0, 0, carRigidbody.angularVelocity.z * 0.9f);
-            //carRigidbody.angularVelocity = Vector3.Lerp(carRigidbody.angularVelocity, Vector3.zero, Time.deltaTime * 3);
+            //carRigidbody.angularVelocity = Vector3.Lerp(carRigidbody.angularVelocity, Vector3.zero, Time.deltaTime * 3);*/
 
             // Make the car turn using steering
             carRigidbody.AddTorque(transform.up * steering * 0.05f, ForceMode.Acceleration);

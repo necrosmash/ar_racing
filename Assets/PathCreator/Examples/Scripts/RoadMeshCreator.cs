@@ -27,7 +27,8 @@ namespace PathCreation.Examples {
         MeshCollider meshCollider;
         // get car_root_with_wings
         GameObject car;
-
+        GameObject checkpoint;
+        
         protected override void PathUpdated () {
             if (pathCreator != null) {
                 AssignMeshComponents ();
@@ -35,13 +36,14 @@ namespace PathCreation.Examples {
                 CreateRoadMesh ();
                 // Project - Simply set the mesh to the collider when updating the path.
                 meshCollider.sharedMesh = mesh;
-
+                // CreateCheckPoints();
             }
         }
 
         // Project. 
         void Start()
         {
+            
             // if there are any prefab_car_wings clones in the scene, destroy them
             foreach (GameObject car in GameObject.FindGameObjectsWithTag("Car"))
             {
@@ -58,9 +60,54 @@ namespace PathCreation.Examples {
 
             // Instantiate the car in the direction of the track
             Instantiate(car, position, Quaternion.LookRotation(pathCreator.path.GetDirection(0)));
+            
+            // CreateCheckPoints();
         }
 
-        
+        // Projects: Checkpoints
+
+        /*void CreateCheckPoints()
+        {
+            DeleteCheckPoints();
+
+            // get the checkpoint prefab from the resources folder
+            checkpoint = Resources.Load("Prefabs/Checkpoint") as GameObject;
+
+            // Set the x scale of the checkpoint to the width of the road
+            checkpoint.transform.localScale = new Vector3(roadWidth * 2, 2, 0.1f);
+*//*
+            // Create array of checkpoints
+            GameObject[] checkpoints = new GameObject[pathCreator.bezierPath.NumPoints];
+
+            Vector3 up = Vector3.up * 0.5f;
+            // get the path direction at each point
+            // Vector3[] directions = pathCreator.bezierPath.GetDirections(0.01f);
+
+            // Create a checkpoint for each point on the path
+            for (int i = 0; i < pathCreator.bezierPath.NumPoints; i++)
+            {
+                // Instantiate the checkpoints parallel to the track
+                
+                checkpoints[i] = Instantiate(checkpoint, pathCreator.bezierPath.GetPoint(i) + up, Quaternion.LookRotation(pathCreator.path.GetDirection(i)));
+
+
+
+                // checkpoints[i] = Instantiate(checkpoint, pathCreator.bezierPath.GetPoint(i) + (Vector3.up * 0.5f), Quaternion.LookRotation(pathCreator.path.GetDirection(i)));
+            }*//*
+
+        }
+
+        void DeleteCheckPoints()
+        {
+
+            foreach (GameObject c in GameObject.FindGameObjectsWithTag("Checkpoint"))
+            {
+                if (c == null)
+                    Debug.Log("Checkpoint is null");
+                DestroyImmediate(c);
+            }
+        }*/
+
 
         void CreateRoadMesh () {
             Vector3[] verts = new Vector3[path.NumPoints * 8];
