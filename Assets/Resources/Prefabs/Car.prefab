@@ -722,7 +722,7 @@ GameObject:
   - component: {fileID: 5296173053406902574}
   - component: {fileID: -4619822754491824472}
   m_Layer: 0
-  m_Name: prefab_car_wings
+  m_Name: Car
   m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
