@@ -6,7 +6,7 @@ using UnityEngine;
 namespace PathCreation.Examples {
     public class RoadMeshCreator : PathSceneTool {
         [Header ("Road settings")]
-        public float roadWidth = .4f;
+        public float roadWidth = 1;
         [Range (0, .5f)]
         public float thickness = .15f;
         public bool flattenSurface;
@@ -26,7 +26,7 @@ namespace PathCreation.Examples {
         // Porject
         MeshCollider meshCollider;
         // get car_root_with_wings
-        GameObject car;
+        public GameObject car;
         GameObject checkpoint;
         
         protected override void PathUpdated () {
@@ -36,7 +36,16 @@ namespace PathCreation.Examples {
                 CreateRoadMesh ();
                 // Project - Simply set the mesh to the collider when updating the path.
                 meshCollider.sharedMesh = mesh;
-                // CreateCheckPoints();
+                
+            }
+        }
+
+        private void Awake()
+        {
+            // if there are any prefab_car_wings clones in the scene, destroy them
+            foreach (GameObject car in GameObject.FindGameObjectsWithTag("Car"))
+            {
+                DestroyImmediate(car);
             }
         }
 
@@ -44,69 +53,18 @@ namespace PathCreation.Examples {
         void Start()
         {
             
-            // if there are any prefab_car_wings clones in the scene, destroy them
-            foreach (GameObject car in GameObject.FindGameObjectsWithTag("Car"))
-            {
-                DestroyImmediate(car);
-            }
-
             // get the car_root_with_wings object from the resources folder
-            car = Resources.Load("Prefabs/prefab_car_wings") as GameObject;
-
+            // car = Resources.Load("Prefabs/prefab_car_wings") as GameObject;
+            
             // The position of the first point on the path
             Vector3 position = pathCreator.bezierPath.GetPoint(0);
+            
             // raise the position in the y axis by 0.1 so the car is not in the ground
             position.y += 0.1f;
 
             // Instantiate the car in the direction of the track
             Instantiate(car, position, Quaternion.LookRotation(pathCreator.path.GetDirection(0)));
-            
-            // CreateCheckPoints();
         }
-
-        // Projects: Checkpoints
-
-        /*void CreateCheckPoints()
-        {
-            DeleteCheckPoints();
-
-            // get the checkpoint prefab from the resources folder
-            checkpoint = Resources.Load("Prefabs/Checkpoint") as GameObject;
-
-            // Set the x scale of the checkpoint to the width of the road
-            checkpoint.transform.localScale = new Vector3(roadWidth * 2, 2, 0.1f);
-*//*
-            // Create array of checkpoints
-            GameObject[] checkpoints = new GameObject[pathCreator.bezierPath.NumPoints];
-
-            Vector3 up = Vector3.up * 0.5f;
-            // get the path direction at each point
-            // Vector3[] directions = pathCreator.bezierPath.GetDirections(0.01f);
-
-            // Create a checkpoint for each point on the path
-            for (int i = 0; i < pathCreator.bezierPath.NumPoints; i++)
-            {
-                // Instantiate the checkpoints parallel to the track
-                
-                checkpoints[i] = Instantiate(checkpoint, pathCreator.bezierPath.GetPoint(i) + up, Quaternion.LookRotation(pathCreator.path.GetDirection(i)));
-
-
-
-                // checkpoints[i] = Instantiate(checkpoint, pathCreator.bezierPath.GetPoint(i) + (Vector3.up * 0.5f), Quaternion.LookRotation(pathCreator.path.GetDirection(i)));
-            }*//*
-
-        }
-
-        void DeleteCheckPoints()
-        {
-
-            foreach (GameObject c in GameObject.FindGameObjectsWithTag("Checkpoint"))
-            {
-                if (c == null)
-                    Debug.Log("Checkpoint is null");
-                DestroyImmediate(c);
-            }
-        }*/
 
 
         void CreateRoadMesh () {

@@ -147,6 +147,7 @@ public class SimpleCarController : MonoBehaviour
         // make the car glide if space is pressed.
         if (Input.GetKey(KeyCode.Space))
         {
+            // Debug.Log("Space is pressed");
             // Attempt at making it work through pitch rotation, got annoyed, try again later.
             /*// Counteract gravity
             carRigidbody.AddForce(transform.up * 9.1f, ForceMode.Acceleration);
@@ -169,8 +170,8 @@ public class SimpleCarController : MonoBehaviour
             transform.forward = new Vector3(carOrientationX, carOrientationY, 0);*/
 
 
-                                // Works but not great
-            
+            // Works but not great
+
             // Counteract gravity
             carRigidbody.AddForce(transform.up * 9.1f, ForceMode.Acceleration);
             // Freeze the z rotation so that the car does not roll forwards
