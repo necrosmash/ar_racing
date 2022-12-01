@@ -39,11 +39,9 @@ public class SimpleCarController : MonoBehaviour
     private float carRotationZ;*/
 
     public Rigidbody carRigidbody;
-    
 
     public void Start()
     {
-
         carRigidbody = GetComponent<Rigidbody>();
         // maxMotorTorque = 300;
         // maxSteeringAngle = 30;

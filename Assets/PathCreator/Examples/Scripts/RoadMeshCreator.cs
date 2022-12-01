@@ -25,8 +25,6 @@ namespace PathCreation.Examples {
         
         // Porject
         MeshCollider meshCollider;
-        // get car_root_with_wings
-        public GameObject car;
         GameObject checkpoint;
         
         protected override void PathUpdated () {
@@ -37,15 +35,6 @@ namespace PathCreation.Examples {
                 // Project - Simply set the mesh to the collider when updating the path.
                 meshCollider.sharedMesh = mesh;
                 
-            }
-        }
-
-        private void Awake()
-        {
-            // if there are any prefab_car_wings clones in the scene, destroy them
-            foreach (GameObject car in GameObject.FindGameObjectsWithTag("Car"))
-            {
-                DestroyImmediate(car);
             }
         }
 
@@ -62,8 +51,11 @@ namespace PathCreation.Examples {
             // raise the position in the y axis by 0.1 so the car is not in the ground
             position.y += 0.1f;
 
+            GameObject.Find("Car").transform.position = position;
+            
             // Instantiate the car in the direction of the track
-            Instantiate(car, position, Quaternion.LookRotation(pathCreator.path.GetDirection(0)));
+            //Instantiate(car, position, Quaternion.LookRotation(pathCreator.path.GetDirection(0)));
+            
         }
 
 

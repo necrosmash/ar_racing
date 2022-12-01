@@ -7,8 +7,7 @@ using UnityEngine;
 public class TrackCheckPoints : PathSceneTool
 {
     public GameObject checkPoint;
-    GameObject path;
-    
+
     float width;
     public float checkpointWidth;
 
