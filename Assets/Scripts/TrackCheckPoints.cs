@@ -21,7 +21,7 @@ public class TrackCheckPoints : PathSceneTool
     public float spacing = 3;
 
     const float minSpacing = .1f;
-    
+
     void Generate()
     {
 
@@ -75,6 +75,8 @@ public class TrackCheckPoints : PathSceneTool
         }
 
     }
+    
+
 
     void DestroyObjects()
     {

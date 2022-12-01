@@ -45,8 +45,11 @@ public class SimpleCarController : MonoBehaviour
     {
         carRigidbody = GetComponent<Rigidbody>();
         // maxMotorTorque = 300;
-        // maxSteeringAngle = 30;
+        // maxSteeringAngle = 30; 
     }
+
+    // if currentCheckpoint changes return true
+
 
     public bool IsGrounded()
     {

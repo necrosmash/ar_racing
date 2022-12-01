@@ -26,7 +26,7 @@ namespace PathCreation.Examples {
         // Porject
         MeshCollider meshCollider;
         GameObject checkpoint;
-        
+ 
         protected override void PathUpdated () {
             if (pathCreator != null) {
                 AssignMeshComponents ();
