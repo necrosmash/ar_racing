@@ -2,31 +2,21 @@ using PathCreation;
 using PathCreation.Examples;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrackCheckPoints : PathSceneTool
-{
-    public GameObject checkPoint;
-
+{ 
+    // public CheckPointSingle checkPointClass;
+    public CheckPointSingle checkPoint;
     float width;
-    public float checkpointWidth;
-
     Vector3 up = Vector3.up * 0.5f;
     ///////////////////////////////////////////////////////////////
     /// Checkpoints are created at the start of the game
     /// And updated when the game starts, not when the path changes.
+    ///////////////////////////////////////////////////////////////
 
-   /* void Start()
-    {
-        Transform checkpointsTransform = transform.Find("Checkpoints");
-
-        foreach (Transform checkpointSingleTransform in checkpointsTransform)
-        {
-            Debug.Log(checkpointSingleTransform);
-        }
-    }*/
-
-    // public GameObject checkPoint;
     public GameObject holder;
     public float spacing = 3;
 
@@ -34,40 +24,56 @@ public class TrackCheckPoints : PathSceneTool
     
     void Generate()
     {
-        Debug.Log("up: " + up);
 
         if (pathCreator != null/* && prefab != null*/ && holder != null)
         {
             DestroyObjects();
-
-            VertexPath path = pathCreator.path;
+            
+            // path = pathCreator.path;
             RoadMeshCreator roadMeshCreator = pathCreator.GetComponent<RoadMeshCreator>();
 
             // Get width from Path Creator gameobject
             width = GetComponent<RoadMeshCreator>().roadWidth * 2;
-            Debug.Log("Width: " + width);
+            
             // Change the checkpoint size. (height, width, thickness)
-            checkPoint.transform.localScale = new Vector3(1, width, 0.1f);
+            checkPoint.transform.localScale = new Vector3(1, width, 0.1f); // This changes the prefab  directly cause we dont instanciate it
             
             spacing = Mathf.Max(minSpacing, spacing);
-            float dst = 0;
+            
+            float dst = spacing;
+            int i = 0;
 
-            while (dst < path.length)
+            CheckPointSingle checkPointFirst;
+            CheckPointSingle checkPointLast;
+            CheckPointSingle c;
+            checkPoint.name = "CheckPoint " + i; 
+
+            Vector3 point = pathCreator.path.GetPointAtDistance(dst);
+            Quaternion rot = pathCreator.path.GetRotationAtDistance(dst);
+            
+            checkPointLast = Instantiate(checkPoint, point + up, rot, holder.transform);
+            
+            checkPointFirst = checkPointLast;
+            dst += spacing;
+            i += 1;
+            while (dst < pathCreator.path.length)
             {
-                Vector3 point = path.GetPointAtDistance(dst);
-                Quaternion rot = path.GetRotationAtDistance(dst);
- 
-                Instantiate(checkPoint, point + up, rot, holder.transform);
+                point = pathCreator.path.GetPointAtDistance(dst);
+                rot = pathCreator.path.GetRotationAtDistance(dst);
+
+                //Debug.Log("CheckPoint name is " + checkPoint.name);
+                checkPoint.name = "CheckPoint " + i;
+                c = Instantiate(checkPoint, point + up, rot, holder.transform);
+                checkPointLast.NextCheckpoint = c;
+                checkPointLast = c;
+
                 dst += spacing;
+                i += 1;
             }
+            checkPointLast.NextCheckpoint = checkPointFirst;
 
-            /*Transform checkpointsTransform = transform.Find("Checkpoints");
-
-            foreach (Transform checkpointSingleTransform in checkpointsTransform)
-            {
-                Debug.Log(checkpointSingleTransform);
-            }*/
         }
+
     }
 
     void DestroyObjects()
@@ -83,8 +89,27 @@ public class TrackCheckPoints : PathSceneTool
     {
         if (pathCreator != null)
         {
-            // width = GetComponent<RoadMeshCreator>().roadWidth * 2;
             Generate();
         }
     }
+
+    // Use the method OnTriggerEnter from the CheckPointSingle script
+
+    void Start()
+    {
+        // Count the number of GameObjects with the tag "Car" and create an array of that size
+        // carProgress = new int[GameObject.FindGameObjectsWithTag("Car").Length];
+        if (pathCreator != null)
+        {
+            Generate();
+        }
+    }
+
+    /*public void CarHitCheckpoint(CheckPointSingle checkPointSingle)
+    {
+        Debug.Log("Car through checkpoint X" + checkPointSingle.checkPointNumber);
+        // checkPointSingle.gameObject.GetComponent<SimpleCarController>().lastCheckpoint = gameObject;
+    }*/
+
+    
 }

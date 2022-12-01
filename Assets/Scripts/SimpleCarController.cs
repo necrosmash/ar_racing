@@ -22,7 +22,8 @@ public class SimpleCarController : MonoBehaviour
     public float groundedRaycastDistance = 0.2f;
 
     public float gravityMultiplier = -0.8f;
-    
+
+    public CheckPointSingle currentCheckpoint;
 
     /*
     float force = 0.5f;
