@@ -21609,7 +21609,7 @@ IL_007d:
 		L_27 = Sprite_get_texture_mEEA6640C1B5D38F84CB64C775B201D7D9F48E045(L_26, NULL);
 		NullCheck(L_27);
 		bool L_28;
-		L_28 = VirtualFuncInvoker0< bool >::Invoke(8 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_27);
+		L_28 = VirtualFuncInvoker0< bool >::Invoke(9 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_27);
 		G_B11_0 = ((int32_t)(L_28));
 		goto IL_00b1;
 	}
@@ -21660,7 +21660,7 @@ IL_00b1:
 		L_38 = Sprite_get_texture_mEEA6640C1B5D38F84CB64C775B201D7D9F48E045(L_37, NULL);
 		NullCheck(L_38);
 		bool L_39;
-		L_39 = VirtualFuncInvoker0< bool >::Invoke(8 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_38);
+		L_39 = VirtualFuncInvoker0< bool >::Invoke(9 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_38);
 		if (L_39)
 		{
 			goto IL_0110;
@@ -21754,7 +21754,7 @@ IL_011d:
 		L_57 = Sprite_get_texture_mEEA6640C1B5D38F84CB64C775B201D7D9F48E045(L_56, NULL);
 		NullCheck(L_57);
 		bool L_58;
-		L_58 = VirtualFuncInvoker0< bool >::Invoke(8 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_57);
+		L_58 = VirtualFuncInvoker0< bool >::Invoke(9 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_57);
 		if (L_58)
 		{
 			goto IL_01ac;
@@ -22239,7 +22239,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Image_set_alphaHitTestMinimumThreshold_m
 		L_7 = Sprite_get_texture_mEEA6640C1B5D38F84CB64C775B201D7D9F48E045(L_6, NULL);
 		NullCheck(L_7);
 		bool L_8;
-		L_8 = VirtualFuncInvoker0< bool >::Invoke(8 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_7);
+		L_8 = VirtualFuncInvoker0< bool >::Invoke(9 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_7);
 		if (L_8)
 		{
 			goto IL_0042;
