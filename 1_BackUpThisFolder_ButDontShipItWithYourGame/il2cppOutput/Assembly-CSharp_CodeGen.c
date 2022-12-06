@@ -44,106 +44,112 @@ extern void ARFeatheredPlaneMeshVisualizer_GenerateBoundaryUVs_mF756D3C1F7925A69
 extern void ARFeatheredPlaneMeshVisualizer__ctor_m9A77651BCAE58AA0B994FFF6C6B63B1CFF2729F6 (void);
 // 0x00000010 System.Void ARFeatheredPlaneMeshVisualizer::.cctor()
 extern void ARFeatheredPlaneMeshVisualizer__cctor_m56285A000EE27A1631BE9C5BCDA5C376E5D133C3 (void);
-// 0x00000011 System.Void AR_Cursor::Start()
-extern void AR_Cursor_Start_m2471DF2468DF758EF0ECE2D970EF96D58F3CE16C (void);
-// 0x00000012 System.Void AR_Cursor::Update()
-extern void AR_Cursor_Update_m5DFE1BC350D1EB015BBC62269C4C3115E9BF353A (void);
-// 0x00000013 System.Void AR_Cursor::.ctor()
-extern void AR_Cursor__ctor_m52481EA506FA2F27DD4A30C7A7160E315F4D8E6F (void);
-// 0x00000014 CheckPointSingle CheckPointSingle::get_NextCheckpoint()
+// 0x00000011 CheckPointSingle CheckPointSingle::get_NextCheckpoint()
 extern void CheckPointSingle_get_NextCheckpoint_m0539B4237AEB0F23BC26B0F0A0F0A502D5413AE0 (void);
-// 0x00000015 System.Void CheckPointSingle::set_NextCheckpoint(CheckPointSingle)
+// 0x00000012 System.Void CheckPointSingle::set_NextCheckpoint(CheckPointSingle)
 extern void CheckPointSingle_set_NextCheckpoint_m23D577C528D4C4F6E26AA91CE348AF29B366361C (void);
-// 0x00000016 System.Void CheckPointSingle::OnTriggerEnter(UnityEngine.Collider)
+// 0x00000013 System.Void CheckPointSingle::OnTriggerEnter(UnityEngine.Collider)
 extern void CheckPointSingle_OnTriggerEnter_m408C6F92160BA8BD2BF72797A23515C44620C5B8 (void);
-// 0x00000017 System.Void CheckPointSingle::.ctor()
+// 0x00000014 System.Void CheckPointSingle::.ctor()
 extern void CheckPointSingle__ctor_mB5A2B0658ED459020EB8D719D35BC129C55E1CA8 (void);
-// 0x00000018 System.Void KartColor::Start()
+// 0x00000015 System.Void KartColor::Start()
 extern void KartColor_Start_mA41773DDB64A60F685FD685337A5BB02E16F3D92 (void);
-// 0x00000019 System.Void KartColor::Update()
+// 0x00000016 System.Void KartColor::Update()
 extern void KartColor_Update_mD9E675E0778B9758AB2334C9464B295DE4EA19CC (void);
-// 0x0000001A System.Void KartColor::.ctor()
+// 0x00000017 System.Void KartColor::.ctor()
 extern void KartColor__ctor_m437CF460B57E894E23138F538897C296A2B0AF36 (void);
-// 0x0000001B System.Void NoArCamera::Start()
+// 0x00000018 System.Void NoArCamera::Start()
 extern void NoArCamera_Start_m72A37BB62F8E5794B95D88C9E8B85CF19352E267 (void);
-// 0x0000001C System.Void NoArCamera::Update()
+// 0x00000019 System.Void NoArCamera::Update()
 extern void NoArCamera_Update_mC7E87A0F178D7B95D0669A0760AA4A9B312104FD (void);
-// 0x0000001D System.Void NoArCamera::.ctor()
+// 0x0000001A System.Void NoArCamera::.ctor()
 extern void NoArCamera__ctor_mD37648AC56D2DB0653FA7FD00E1BF64215D967C4 (void);
-// 0x0000001E System.Void AxleInfo::.ctor()
+// 0x0000001B System.Void AxleInfo::.ctor()
 extern void AxleInfo__ctor_m6AEBB35270D53694D8D51B412507D9A53E7CFC08 (void);
-// 0x0000001F System.Void SimpleCarController::Start()
+// 0x0000001C System.Void SimpleCarController::Start()
 extern void SimpleCarController_Start_mDFE0E1A5A30883202B0C79883AB63B9BA5870940 (void);
-// 0x00000020 System.Boolean SimpleCarController::IsGrounded()
+// 0x0000001D System.Boolean SimpleCarController::IsGrounded()
 extern void SimpleCarController_IsGrounded_m4EB68DDAAD1C40AADFD65CE4A645FF828FFEB5F9 (void);
-// 0x00000021 System.Void SimpleCarController::Brake()
+// 0x0000001E System.Void SimpleCarController::Brake()
 extern void SimpleCarController_Brake_mEEBD7F0F6B37B6F07716EB93D552EB90296D9A53 (void);
-// 0x00000022 System.Void SimpleCarController::ApplyLocalPositionToVisuals(UnityEngine.WheelCollider)
+// 0x0000001F System.Void SimpleCarController::ApplyLocalPositionToVisuals(UnityEngine.WheelCollider)
 extern void SimpleCarController_ApplyLocalPositionToVisuals_m35D13CADFBD0D8CAE6FBE9B839AF48C841E83BDD (void);
-// 0x00000023 System.Void SimpleCarController::FixedUpdate()
+// 0x00000020 System.Void SimpleCarController::FixedUpdate()
 extern void SimpleCarController_FixedUpdate_m3A304260EEB49E004B9EA979D1E3F6BBC5972268 (void);
-// 0x00000024 System.Void SimpleCarController::.ctor()
+// 0x00000021 System.Void SimpleCarController::.ctor()
 extern void SimpleCarController__ctor_mA98893572317F3EC1A30301D0A0C2BD2FB6ECFB9 (void);
-// 0x00000025 System.Void TrackCheckPoints::Generate()
+// 0x00000022 System.Void TapToPlace::Start()
+extern void TapToPlace_Start_m88A8EBEEE0866ADE0EE70E0EC6559BEA94AC9193 (void);
+// 0x00000023 System.Void TapToPlace::Update()
+extern void TapToPlace_Update_m33D9C75969AEECB2DA58CC2E64A6D4362DC6D235 (void);
+// 0x00000024 System.Void TapToPlace::instantiateCar()
+extern void TapToPlace_instantiateCar_mF51EFF195EFCDFC4BA740E6B3634ED52C92C42D8 (void);
+// 0x00000025 System.Void TapToPlace::instantiatePathCreator()
+extern void TapToPlace_instantiatePathCreator_m87A3CC1DA87C3BFBA95D9FC483D49A88AF9C89C1 (void);
+// 0x00000026 System.ValueTuple`2<System.Boolean,System.Collections.Generic.List`1<UnityEngine.XR.ARFoundation.ARRaycastHit>> TapToPlace::getHitInfo()
+extern void TapToPlace_getHitInfo_mEA8CD35C50FB14C49524CF84B35560C38A71D133 (void);
+// 0x00000027 System.Void TapToPlace::.ctor()
+extern void TapToPlace__ctor_mD45A31FF1B60C2E0918BB0E60931B2BC0584A044 (void);
+// 0x00000028 System.Void TrackCheckPoints::Generate()
 extern void TrackCheckPoints_Generate_m7D192CC46CF25799B4476E65C30A88B0B6BA230A (void);
-// 0x00000026 System.Void TrackCheckPoints::DestroyObjects()
+// 0x00000029 System.Void TrackCheckPoints::DestroyObjects()
 extern void TrackCheckPoints_DestroyObjects_m4E528A74CDCD57BCDFBEB06E23691E146F628174 (void);
-// 0x00000027 System.Void TrackCheckPoints::PathUpdated()
+// 0x0000002A System.Void TrackCheckPoints::PathUpdated()
 extern void TrackCheckPoints_PathUpdated_mB46D8FECE38030C5EA4B61B57057BAA94EB1DF60 (void);
-// 0x00000028 System.Void TrackCheckPoints::Start()
+// 0x0000002B System.Void TrackCheckPoints::Start()
 extern void TrackCheckPoints_Start_mCFD9D3B610DACF23DF49594C0E600EBED1C87769 (void);
-// 0x00000029 System.Void TrackCheckPoints::.ctor()
+// 0x0000002C System.Void TrackCheckPoints::.ctor()
 extern void TrackCheckPoints__ctor_mAC4419C2A0611D1C8EAAF8A6033509618DE79C2E (void);
-// 0x0000002A System.Void PathCreation.Examples.GeneratePathExample::Start()
+// 0x0000002D System.Void PathCreation.Examples.GeneratePathExample::Start()
 extern void GeneratePathExample_Start_mFFD28E3659EA74A33658B69BF878B6B78586DF6A (void);
-// 0x0000002B System.Void PathCreation.Examples.GeneratePathExample::.ctor()
+// 0x0000002E System.Void PathCreation.Examples.GeneratePathExample::.ctor()
 extern void GeneratePathExample__ctor_m3BD1EDD56A039577F8FCB927208AC35FCA5FF195 (void);
-// 0x0000002C System.Void PathCreation.Examples.PathFollower::Start()
+// 0x0000002F System.Void PathCreation.Examples.PathFollower::Start()
 extern void PathFollower_Start_mAB124FFE6EA0765B423C5D68D700795D31360272 (void);
-// 0x0000002D System.Void PathCreation.Examples.PathFollower::Update()
+// 0x00000030 System.Void PathCreation.Examples.PathFollower::Update()
 extern void PathFollower_Update_m5470672F21D852143CE79628F529735A46532B64 (void);
-// 0x0000002E System.Void PathCreation.Examples.PathFollower::OnPathChanged()
+// 0x00000031 System.Void PathCreation.Examples.PathFollower::OnPathChanged()
 extern void PathFollower_OnPathChanged_m028CF7B51154B4DAF6E2F06BB940C9AD5E1C0099 (void);
-// 0x0000002F System.Void PathCreation.Examples.PathFollower::.ctor()
+// 0x00000032 System.Void PathCreation.Examples.PathFollower::.ctor()
 extern void PathFollower__ctor_m3A555005798A34DBF8D44CA476AEBE1B7FE4A9B3 (void);
-// 0x00000030 System.Void PathCreation.Examples.PathPlacer::Generate()
+// 0x00000033 System.Void PathCreation.Examples.PathPlacer::Generate()
 extern void PathPlacer_Generate_m243FBD7E3BB8515C92616033737F24BD19E314E4 (void);
-// 0x00000031 System.Void PathCreation.Examples.PathPlacer::DestroyObjects()
+// 0x00000034 System.Void PathCreation.Examples.PathPlacer::DestroyObjects()
 extern void PathPlacer_DestroyObjects_mAC14214AF281FA20C14A7672A8C82CDDE35C7F2D (void);
-// 0x00000032 System.Void PathCreation.Examples.PathPlacer::PathUpdated()
+// 0x00000035 System.Void PathCreation.Examples.PathPlacer::PathUpdated()
 extern void PathPlacer_PathUpdated_m5A9DB757D23B377794657E01C08F34898CB863FC (void);
-// 0x00000033 System.Void PathCreation.Examples.PathPlacer::.ctor()
+// 0x00000036 System.Void PathCreation.Examples.PathPlacer::.ctor()
 extern void PathPlacer__ctor_m70D62B746C49D10F835C5CD167C0422198FA950D (void);
-// 0x00000034 System.Void PathCreation.Examples.PathSceneTool::add_onDestroyed(System.Action)
+// 0x00000037 System.Void PathCreation.Examples.PathSceneTool::add_onDestroyed(System.Action)
 extern void PathSceneTool_add_onDestroyed_mED76D915A299EF9E3B12D514D42D6167E84A9226 (void);
-// 0x00000035 System.Void PathCreation.Examples.PathSceneTool::remove_onDestroyed(System.Action)
+// 0x00000038 System.Void PathCreation.Examples.PathSceneTool::remove_onDestroyed(System.Action)
 extern void PathSceneTool_remove_onDestroyed_m61C0E8412396B932ECC9D5FF8DB9B9686D2A9E10 (void);
-// 0x00000036 PathCreation.VertexPath PathCreation.Examples.PathSceneTool::get_path()
+// 0x00000039 PathCreation.VertexPath PathCreation.Examples.PathSceneTool::get_path()
 extern void PathSceneTool_get_path_m72F68E384DBC035855743F4B2FCB5415DBFF14EF (void);
-// 0x00000037 System.Void PathCreation.Examples.PathSceneTool::TriggerUpdate()
+// 0x0000003A System.Void PathCreation.Examples.PathSceneTool::TriggerUpdate()
 extern void PathSceneTool_TriggerUpdate_m407BF9C2AD2199B431FEF16B38518A736A9271A9 (void);
-// 0x00000038 System.Void PathCreation.Examples.PathSceneTool::OnDestroy()
+// 0x0000003B System.Void PathCreation.Examples.PathSceneTool::OnDestroy()
 extern void PathSceneTool_OnDestroy_mE28803C69ECDD2B4C20F031BAFF54A68C95751B8 (void);
-// 0x00000039 System.Void PathCreation.Examples.PathSceneTool::PathUpdated()
-// 0x0000003A System.Void PathCreation.Examples.PathSceneTool::.ctor()
+// 0x0000003C System.Void PathCreation.Examples.PathSceneTool::PathUpdated()
+// 0x0000003D System.Void PathCreation.Examples.PathSceneTool::.ctor()
 extern void PathSceneTool__ctor_mD5CF440FBD01E98E3C41BE3C4E3FAE05180C9602 (void);
-// 0x0000003B System.Void PathCreation.Examples.PathSpawner::Start()
+// 0x0000003E System.Void PathCreation.Examples.PathSpawner::Start()
 extern void PathSpawner_Start_m32C23C4E55AE475A539E6DA7E74C0DE4ACD5905D (void);
-// 0x0000003C System.Void PathCreation.Examples.PathSpawner::.ctor()
+// 0x0000003F System.Void PathCreation.Examples.PathSpawner::.ctor()
 extern void PathSpawner__ctor_m809B671B8A86A88E3C1AF3D858468BBF2BF7B1F3 (void);
-// 0x0000003D System.Void PathCreation.Examples.RoadMeshCreator::PathUpdated()
+// 0x00000040 System.Void PathCreation.Examples.RoadMeshCreator::PathUpdated()
 extern void RoadMeshCreator_PathUpdated_mCA67E079DCB3573FD352814A9683122AFDEF2BA6 (void);
-// 0x0000003E System.Void PathCreation.Examples.RoadMeshCreator::Start()
+// 0x00000041 System.Void PathCreation.Examples.RoadMeshCreator::Start()
 extern void RoadMeshCreator_Start_m17F7DEEC9360FF056335D51AA75C4114CE0DAD23 (void);
-// 0x0000003F System.Void PathCreation.Examples.RoadMeshCreator::CreateRoadMesh()
+// 0x00000042 System.Void PathCreation.Examples.RoadMeshCreator::CreateRoadMesh()
 extern void RoadMeshCreator_CreateRoadMesh_m542B2454BA8D0F2AC09ECB9913058DFBCB8B8D7A (void);
-// 0x00000040 System.Void PathCreation.Examples.RoadMeshCreator::AssignMeshComponents()
+// 0x00000043 System.Void PathCreation.Examples.RoadMeshCreator::AssignMeshComponents()
 extern void RoadMeshCreator_AssignMeshComponents_mE381F5921D60869630DFE5B9665EF6759CC0282E (void);
-// 0x00000041 System.Void PathCreation.Examples.RoadMeshCreator::AssignMaterials()
+// 0x00000044 System.Void PathCreation.Examples.RoadMeshCreator::AssignMaterials()
 extern void RoadMeshCreator_AssignMaterials_m1BDA3C67291D5D7CE67AEEF06F6619CF24753DDC (void);
-// 0x00000042 System.Void PathCreation.Examples.RoadMeshCreator::.ctor()
+// 0x00000045 System.Void PathCreation.Examples.RoadMeshCreator::.ctor()
 extern void RoadMeshCreator__ctor_mC9E751781592C035A35CB786BA0EF703201E4C93 (void);
-static Il2CppMethodPointer s_methodPointers[66] = 
+static Il2CppMethodPointer s_methodPointers[69] = 
 {
 	AnchorCreator_get_AnchorPrefab_mBBAF7805E9D9F8D79408EE642D153BC76306B25A,
 	AnchorCreator_set_AnchorPrefab_m53CC9CC3022C713826B44536B48B462C8A1FACFF,
@@ -161,9 +167,6 @@ static Il2CppMethodPointer s_methodPointers[66] =
 	ARFeatheredPlaneMeshVisualizer_GenerateBoundaryUVs_mF756D3C1F7925A69CD8C7C8CCE56209AB321FEF5,
 	ARFeatheredPlaneMeshVisualizer__ctor_m9A77651BCAE58AA0B994FFF6C6B63B1CFF2729F6,
 	ARFeatheredPlaneMeshVisualizer__cctor_m56285A000EE27A1631BE9C5BCDA5C376E5D133C3,
-	AR_Cursor_Start_m2471DF2468DF758EF0ECE2D970EF96D58F3CE16C,
-	AR_Cursor_Update_m5DFE1BC350D1EB015BBC62269C4C3115E9BF353A,
-	AR_Cursor__ctor_m52481EA506FA2F27DD4A30C7A7160E315F4D8E6F,
 	CheckPointSingle_get_NextCheckpoint_m0539B4237AEB0F23BC26B0F0A0F0A502D5413AE0,
 	CheckPointSingle_set_NextCheckpoint_m23D577C528D4C4F6E26AA91CE348AF29B366361C,
 	CheckPointSingle_OnTriggerEnter_m408C6F92160BA8BD2BF72797A23515C44620C5B8,
@@ -181,6 +184,12 @@ static Il2CppMethodPointer s_methodPointers[66] =
 	SimpleCarController_ApplyLocalPositionToVisuals_m35D13CADFBD0D8CAE6FBE9B839AF48C841E83BDD,
 	SimpleCarController_FixedUpdate_m3A304260EEB49E004B9EA979D1E3F6BBC5972268,
 	SimpleCarController__ctor_mA98893572317F3EC1A30301D0A0C2BD2FB6ECFB9,
+	TapToPlace_Start_m88A8EBEEE0866ADE0EE70E0EC6559BEA94AC9193,
+	TapToPlace_Update_m33D9C75969AEECB2DA58CC2E64A6D4362DC6D235,
+	TapToPlace_instantiateCar_mF51EFF195EFCDFC4BA740E6B3634ED52C92C42D8,
+	TapToPlace_instantiatePathCreator_m87A3CC1DA87C3BFBA95D9FC483D49A88AF9C89C1,
+	TapToPlace_getHitInfo_mEA8CD35C50FB14C49524CF84B35560C38A71D133,
+	TapToPlace__ctor_mD45A31FF1B60C2E0918BB0E60931B2BC0584A044,
 	TrackCheckPoints_Generate_m7D192CC46CF25799B4476E65C30A88B0B6BA230A,
 	TrackCheckPoints_DestroyObjects_m4E528A74CDCD57BCDFBEB06E23691E146F628174,
 	TrackCheckPoints_PathUpdated_mB46D8FECE38030C5EA4B61B57057BAA94EB1DF60,
@@ -212,80 +221,83 @@ static Il2CppMethodPointer s_methodPointers[66] =
 	RoadMeshCreator_AssignMaterials_m1BDA3C67291D5D7CE67AEEF06F6619CF24753DDC,
 	RoadMeshCreator__ctor_mC9E751781592C035A35CB786BA0EF703201E4C93,
 };
-static const int32_t s_InvokerIndices[66] = 
+static const int32_t s_InvokerIndices[69] = 
 {
-	6613,
-	5334,
-	6716,
-	6716,
-	6716,
-	6716,
-	12442,
-	6656,
-	5367,
-	6716,
-	6716,
-	6716,
-	5213,
-	5334,
-	6716,
-	12442,
-	6716,
-	6716,
-	6716,
-	6613,
-	5334,
-	5334,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6516,
-	6716,
-	5334,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	5334,
-	5334,
-	6613,
-	6716,
-	6716,
+	6616,
+	5336,
+	6719,
+	6719,
+	6719,
+	6719,
+	12445,
+	6659,
+	5369,
+	6719,
+	6719,
+	6719,
+	5215,
+	5336,
+	6719,
+	12445,
+	6616,
+	5336,
+	5336,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6519,
+	6719,
+	5336,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6495,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	5336,
+	5336,
+	6616,
+	6719,
+	6719,
 	0,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
-	6716,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
+	6719,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	66,
+	69,
 	s_methodPointers,
 	0,
 	NULL,

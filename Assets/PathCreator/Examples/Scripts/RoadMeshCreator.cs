@@ -51,7 +51,8 @@ namespace PathCreation.Examples {
             // raise the position in the y axis by 0.1 so the car is not in the ground
             position.y += 0.1f;
 
-            GameObject.Find("Car").transform.position = position;
+            // this makes it hard to instantiate a track before a car - RD
+            //GameObject.Find("Car").transform.position = position;
             
             // Instantiate the car in the direction of the track
             //Instantiate(car, position, Quaternion.LookRotation(pathCreator.path.GetDirection(0)));
