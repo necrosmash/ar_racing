@@ -25,6 +25,10 @@ public class SimpleCarController : MonoBehaviour
 
     public CheckPointSingle currentCheckpoint;
 
+    //Boosting 
+    public float timeStamp = 0f;
+    public float boost = 200f;
+
     /*
     float force = 0.5f;
     Vector3 airDirection;
@@ -71,6 +75,17 @@ public class SimpleCarController : MonoBehaviour
         return true;
     }
 
+    // Boosting
+    public void Boost()
+    {
+        if (Input.GetKey(KeyCode.C)  && timeStamp <= Time.time)
+        {  
+            // Make car move forwards.
+            carRigidbody.AddForce(transform.forward * boost, ForceMode.Acceleration);
+            timeStamp = Time.time + 5f;
+            Debug.Log("BOOST ACTIVATED");
+        }
+    }
     
     
     public void Brake()
@@ -123,6 +138,10 @@ public class SimpleCarController : MonoBehaviour
         { }*/
         // Might be useful for drifting?
         Brake();
+
+        //
+        Boost();
+        
 
         foreach (AxleInfo axleInfo in axleInfos)
             {
