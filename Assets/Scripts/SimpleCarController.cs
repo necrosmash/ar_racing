@@ -29,6 +29,9 @@ public class SimpleCarController : MonoBehaviour
     public float timeStamp = 0f;
     public float boost = 200f;
 
+    [SerializeField]
+    private float boostCooldown = 5f;
+
     /*
     float force = 0.5f;
     Vector3 airDirection;
@@ -82,7 +85,7 @@ public class SimpleCarController : MonoBehaviour
         {  
             // Make car move forwards.
             carRigidbody.AddForce(transform.forward * boost, ForceMode.Acceleration);
-            timeStamp = Time.time + 5f;
+            timeStamp = Time.time + boostCooldown;
             Debug.Log("BOOST ACTIVATED");
         }
     }
