@@ -40,6 +40,7 @@ public class BottomBarrierCollision : MonoBehaviour
     // Create IEnumerator to spin car for one second
     IEnumerator SpinCar(GameObject car)
     {
+        
         carRigidbody = car.GetComponent<Rigidbody>();
         carRigidbody.AddForce(transform.up * 1f, ForceMode.Acceleration);
         carRigidbody.AddTorque(transform.up * 40f, ForceMode.Impulse);
