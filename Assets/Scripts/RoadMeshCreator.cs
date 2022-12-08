@@ -23,14 +23,33 @@ public class RoadMeshCreator : MonoBehaviour
     Mesh mesh;
 
     MeshCollider meshCollider;
-    Vector2[] points;
-    public VertexPath vp;
+    private List<Vector2> points;
+    private BezierPath bp;
+
+    public VertexPath Vp { get; private set; }
 
     private void PathUpdated()
     {
         AssignMeshComponents();
         AssignMaterials();
         CreateRoadMesh();
+    }
+
+    public void addPoint(Vector2 p)
+    {
+        points.Add(p);
+        bp = new BezierPath(points, PathSpace.xy);
+        Vp = new VertexPath(bp, transform);
+        
+        if (points.Count > 1) PathUpdated();
+    }
+
+    public void closePath()
+    {
+        bp = new BezierPath(points, true, PathSpace.xy);
+        Vp = new VertexPath(bp, transform);
+        PathUpdated();
+        GetComponent<TrackCheckPoints>().Generate();
     }
 
     void Start()
@@ -51,35 +70,16 @@ public class RoadMeshCreator : MonoBehaviour
         // Instantiate the car in the direction of the track
         //Instantiate(car, position, Quaternion.LookRotation(pathCreator.path.GetDirection(0)));
 
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            points = new Vector2[] { new Vector2(0, 0), new Vector2(0, 100), new Vector2(100, 100), new Vector2(100, 0) };
-            // Create a closed, 2D bezier path from the supplied points array
-            // These points are treated as anchors, which the path will pass through
-            // The control points for the path will be generated automatically
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            BezierPath bezierPath = new BezierPath(points, true, PathSpace.xy);
-            // Then create a vertex path from the bezier path, to be used for movement etc
-            vp = new VertexPath(bezierPath, transform);
-            PathUpdated();
-            GetComponent<TrackCheckPoints>().Generate();
-        }
+        points = new List<Vector2>();
     }
 
     void CreateRoadMesh()
     {
-        Vector3[] verts = new Vector3[vp.NumPoints * 8];
+        Vector3[] verts = new Vector3[Vp.NumPoints * 8];
         Vector2[] uvs = new Vector2[verts.Length];
         Vector3[] normals = new Vector3[verts.Length];
 
-        int numTris = 2 * (vp.NumPoints - 1) + ((vp.isClosedLoop) ? 2 : 0);
+        int numTris = 2 * (Vp.NumPoints - 1) + ((Vp.isClosedLoop) ? 2 : 0);
         int[] roadTriangles = new int[numTris * 3];
         int[] underRoadTriangles = new int[numTris * 3];
         int[] sideOfRoadTriangles = new int[numTris * 2 * 3];
@@ -94,16 +94,16 @@ public class RoadMeshCreator : MonoBehaviour
         int[] triangleMap = { 0, 8, 1, 1, 8, 9 };
         int[] sidesTriangleMap = { 4, 6, 14, 12, 4, 14, 5, 15, 7, 13, 15, 5 };
 
-        bool usePathNormals = !(vp.space == PathSpace.xyz && flattenSurface);
+        bool usePathNormals = !(Vp.space == PathSpace.xyz && flattenSurface);
 
-        for (int i = 0; i < vp.NumPoints; i++)
+        for (int i = 0; i < Vp.NumPoints; i++)
         {
-            Vector3 localUp = (usePathNormals) ? Vector3.Cross(vp.GetTangent(i), vp.GetNormal(i)) : vp.up;
-            Vector3 localRight = (usePathNormals) ? vp.GetNormal(i) : Vector3.Cross(localUp, vp.GetTangent(i));
+            Vector3 localUp = (usePathNormals) ? Vector3.Cross(Vp.GetTangent(i), Vp.GetNormal(i)) : Vp.up;
+            Vector3 localRight = (usePathNormals) ? Vp.GetNormal(i) : Vector3.Cross(localUp, Vp.GetTangent(i));
 
             // Find position to left and right of current path vertex
-            Vector3 vertSideA = vp.GetPoint(i) - localRight * Mathf.Abs(roadWidth);
-            Vector3 vertSideB = vp.GetPoint(i) + localRight * Mathf.Abs(roadWidth);
+            Vector3 vertSideA = Vp.GetPoint(i) - localRight * Mathf.Abs(roadWidth);
+            Vector3 vertSideB = Vp.GetPoint(i) + localRight * Mathf.Abs(roadWidth);
 
             // Add top of road vertices
             verts[vertIndex + 0] = vertSideA;
@@ -119,8 +119,8 @@ public class RoadMeshCreator : MonoBehaviour
             verts[vertIndex + 7] = verts[vertIndex + 3];
 
             // Set uv on y axis to path time (0 at start of path, up to 1 at end of path)
-            uvs[vertIndex + 0] = new Vector2(0, vp.times[i]);
-            uvs[vertIndex + 1] = new Vector2(1, vp.times[i]);
+            uvs[vertIndex + 0] = new Vector2(0, Vp.times[i]);
+            uvs[vertIndex + 1] = new Vector2(1, Vp.times[i]);
 
             // Top of road normals
             normals[vertIndex + 0] = localUp;
@@ -135,7 +135,7 @@ public class RoadMeshCreator : MonoBehaviour
             normals[vertIndex + 7] = localRight;
 
             // Set triangle indices
-            if (i < vp.NumPoints - 1 || vp.isClosedLoop)
+            if (i < Vp.NumPoints - 1 || Vp.isClosedLoop)
             {
                 for (int j = 0; j < triangleMap.Length; j++)
                 {

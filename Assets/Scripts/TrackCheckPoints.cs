@@ -50,18 +50,18 @@ public class TrackCheckPoints : MonoBehaviour
         CheckPointSingle checkPointLast;
         checkPoint.name = "CheckPoint " + i; 
 
-        Vector3 point = roadMeshCreator.vp.GetPointAtDistance(dst);
-        Quaternion rot = roadMeshCreator.vp.GetRotationAtDistance(dst);
+        Vector3 point = roadMeshCreator.Vp.GetPointAtDistance(dst);
+        Quaternion rot = roadMeshCreator.Vp.GetRotationAtDistance(dst);
             
         checkPointLast = Instantiate(checkPoint, point + up, rot, holder.transform);
             
         checkPointFirst = checkPointLast;
         dst += spacing;
         i += 1;
-        while (dst < roadMeshCreator.vp.length)
+        while (dst < roadMeshCreator.Vp.length)
         {
-            point = roadMeshCreator.vp.GetPointAtDistance(dst);
-            rot = roadMeshCreator.vp.GetRotationAtDistance(dst);
+            point = roadMeshCreator.Vp.GetPointAtDistance(dst);
+            rot = roadMeshCreator.Vp.GetRotationAtDistance(dst);
 
             //Debug.Log("CheckPoint name is " + checkPoint.name);
             checkPoint.name = "CheckPoint " + i;
