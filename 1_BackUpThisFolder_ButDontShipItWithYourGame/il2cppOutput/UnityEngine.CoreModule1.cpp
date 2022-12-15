@@ -440,6 +440,8 @@ struct PreserveAttribute_t3B4D9311A3DF0B9342570C8E43A61973258D5751;
 struct RectTransform_t6C5DA5E41A89E0F488B001E45E58963480E543A5;
 // UnityEngine.Rendering.RenderPipelineAsset
 struct RenderPipelineAsset_t5F9BF815BF931E1314B184E7F9070FB649C7054E;
+// UnityEngine.RequireComponent
+struct RequireComponent_t8DDD209443A8519033BD1B38803A47077D2A1138;
 // System.ResolveEventHandler
 struct ResolveEventHandler_t3CE88268E672E41B1B55E01587AFBCFB85044692;
 // UnityEngine.ResourcesAPI
@@ -2347,6 +2349,17 @@ struct Rect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D
 	float ___m_Width_2;
 	// System.Single UnityEngine.Rect::m_Height
 	float ___m_Height_3;
+};
+
+// UnityEngine.RequireComponent
+struct RequireComponent_t8DDD209443A8519033BD1B38803A47077D2A1138  : public Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA
+{
+	// System.Type UnityEngine.RequireComponent::m_Type0
+	Type_t* ___m_Type0_0;
+	// System.Type UnityEngine.RequireComponent::m_Type1
+	Type_t* ___m_Type1_1;
+	// System.Type UnityEngine.RequireComponent::m_Type2
+	Type_t* ___m_Type2_2;
 };
 
 // System.Single
@@ -5666,6 +5679,42 @@ inline void List_1_AddWithResize_m378B392086AAB6F400944FA9839516326B3F7BB8 (List
 {
 	((  void (*) (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73*, int32_t, const RuntimeMethod*))List_1_AddWithResize_m378B392086AAB6F400944FA9839516326B3F7BB8_gshared)(__this, ___item0, method);
 }
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void UnityEngine.RequireComponent::.ctor(System.Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RequireComponent__ctor_mB1C4FD7EA20C0ADA84C7956B948A96856B2465A9 (RequireComponent_t8DDD209443A8519033BD1B38803A47077D2A1138* __this, Type_t* ___requiredComponent0, const RuntimeMethod* method) 
+{
+	{
+		Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2(__this, NULL);
+		Type_t* L_0 = ___requiredComponent0;
+		__this->___m_Type0_0 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type0_0), (void*)L_0);
+		return;
+	}
+}
+// System.Void UnityEngine.RequireComponent::.ctor(System.Type,System.Type,System.Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RequireComponent__ctor_m4CE38878A923BCF150621B7EFD18616B3D5B2124 (RequireComponent_t8DDD209443A8519033BD1B38803A47077D2A1138* __this, Type_t* ___requiredComponent0, Type_t* ___requiredComponent21, Type_t* ___requiredComponent32, const RuntimeMethod* method) 
+{
+	{
+		Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2(__this, NULL);
+		Type_t* L_0 = ___requiredComponent0;
+		__this->___m_Type0_0 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type0_0), (void*)L_0);
+		Type_t* L_1 = ___requiredComponent21;
+		__this->___m_Type1_1 = L_1;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type1_1), (void*)L_1);
+		Type_t* L_2 = ___requiredComponent32;
+		__this->___m_Type2_2 = L_2;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type2_2), (void*)L_2);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"

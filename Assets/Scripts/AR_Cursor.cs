@@ -9,12 +9,19 @@ public class AR_Cursor : MonoBehaviour
     [SerializeField]
     private GameObject carPrefab;
 
-    [SerializeField]
+    //[SerializeField]
     private ARRaycastManager raycastManager;
+
+    private RoadMeshCreator roadMeshCreator;
     
     void Start()
     {
-        if (carPrefab == null) Debug.LogError("carPrefab is null");
+        raycastManager = GameObject.Find("AR Session Origin").GetComponent<ARRaycastManager>();
+        roadMeshCreator = GameObject.Find("Path Creator").GetComponent<RoadMeshCreator>();
+
+        if (carPrefab == null) Debug.LogError("ctig7 carPrefab is null");
+        if (raycastManager == null) Debug.LogError("ctig7 rayCastManager is null");
+        if (roadMeshCreator == null) Debug.LogError("ctig7 roadMeshCreator is null");
     }
 
     void Update()
@@ -32,7 +39,8 @@ public class AR_Cursor : MonoBehaviour
             {
                 Debug.Log("ctig Raycast hit");
                 Pose hitPose = hits[0].pose;
-                GameObject.Instantiate(carPrefab, hitPose.position, hitPose.rotation);
+                GameObject go = GameObject.Instantiate(carPrefab, hitPose.position, hitPose.rotation);
+                roadMeshCreator.addPoint((Vector2) go.transform.position);
             }
         }
     }

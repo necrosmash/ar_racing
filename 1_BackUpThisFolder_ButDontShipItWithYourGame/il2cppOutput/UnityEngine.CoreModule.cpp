@@ -32780,6 +32780,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextAreaAttribute__ctor_m5FEE25A73C001A9
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+// System.Single UnityEngine.Time::get_time()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B (const RuntimeMethod* method) 
+{
+	typedef float (*Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B_ftn) ();
+	static Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B_ftn _il2cpp_icall_func;
+	if (!_il2cpp_icall_func)
+	_il2cpp_icall_func = (Time_get_time_m3A271BB1B20041144AC5B7863B71AB1F0150374B_ftn)il2cpp_codegen_resolve_icall ("UnityEngine.Time::get_time()");
+	float icallRetVal = _il2cpp_icall_func();
+	return icallRetVal;
+}
 // System.Single UnityEngine.Time::get_deltaTime()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865 (const RuntimeMethod* method) 
 {
@@ -37740,42 +37750,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisallowMultipleComponent__ctor_mCED7343
 {
 	{
 		Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2(__this, NULL);
-		return;
-	}
-}
-#ifdef __clang__
-#pragma clang diagnostic pop
-#endif
-#ifdef __clang__
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Winvalid-offsetof"
-#pragma clang diagnostic ignored "-Wunused-variable"
-#endif
-// System.Void UnityEngine.RequireComponent::.ctor(System.Type)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RequireComponent__ctor_mB1C4FD7EA20C0ADA84C7956B948A96856B2465A9 (RequireComponent_t8DDD209443A8519033BD1B38803A47077D2A1138* __this, Type_t* ___requiredComponent0, const RuntimeMethod* method) 
-{
-	{
-		Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2(__this, NULL);
-		Type_t* L_0 = ___requiredComponent0;
-		__this->___m_Type0_0 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type0_0), (void*)L_0);
-		return;
-	}
-}
-// System.Void UnityEngine.RequireComponent::.ctor(System.Type,System.Type,System.Type)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RequireComponent__ctor_m4CE38878A923BCF150621B7EFD18616B3D5B2124 (RequireComponent_t8DDD209443A8519033BD1B38803A47077D2A1138* __this, Type_t* ___requiredComponent0, Type_t* ___requiredComponent21, Type_t* ___requiredComponent32, const RuntimeMethod* method) 
-{
-	{
-		Attribute__ctor_m79ED1BF1EE36D1E417BA89A0D9F91F8AAD8D19E2(__this, NULL);
-		Type_t* L_0 = ___requiredComponent0;
-		__this->___m_Type0_0 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type0_0), (void*)L_0);
-		Type_t* L_1 = ___requiredComponent21;
-		__this->___m_Type1_1 = L_1;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type1_1), (void*)L_1);
-		Type_t* L_2 = ___requiredComponent32;
-		__this->___m_Type2_2 = L_2;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Type2_2), (void*)L_2);
 		return;
 	}
 }
