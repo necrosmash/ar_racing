@@ -24,9 +24,9 @@ public class BottomBarrierCollision : MonoBehaviour
             // make the car have the right way up
             carRigidbody = other.gameObject.GetComponent<Rigidbody>();
             carRigidbody.rotation = Quaternion.Euler(0, 0, 0);
-            
-            
 
+            // Freeze the car's rotation
+            carRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             // position the car at the current checkpoint
             other.gameObject.transform.position = currentCheckpoint.transform.position;              
 
@@ -40,11 +40,12 @@ public class BottomBarrierCollision : MonoBehaviour
     // Create IEnumerator to spin car for one second
     IEnumerator SpinCar(GameObject car)
     {
-        
         carRigidbody = car.GetComponent<Rigidbody>();
         carRigidbody.AddForce(transform.up * 1f, ForceMode.Acceleration);
-        carRigidbody.AddTorque(transform.up * 40f, ForceMode.Impulse);
-        yield return new WaitForSeconds(10);
+
+        carRigidbody.AddTorque(transform.right * 1f, ForceMode.Acceleration);
+        //carRigidbody.AddTorque(transform.up * 40f, ForceMode.Impulse);
+        yield return new WaitForSeconds(100);
     }
 
 }

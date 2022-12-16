@@ -24,6 +24,11 @@ public class CheckPointSingle : MonoBehaviour
                 Debug.Log("Car through checkpoint " + this.name);
                 Debug.Log("Cars' next checkpoint is " + nextCheckpoint);
             }
+            /*if (other.gameObject.GetComponent<SimpleCarController>().flag == true)
+            {
+                other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint = this;
+            }*/
+        
             else
             {
                 Debug.Log("Car is going in the wrong direction!");
