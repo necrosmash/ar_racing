@@ -721,6 +721,8 @@ GameObject:
   - component: {fileID: 5296173053406902573}
   - component: {fileID: 5296173053406902574}
   - component: {fileID: -4619822754491824472}
+  - component: {fileID: 1777638668107395383}
+  - component: {fileID: -8967533409719744425}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -793,6 +795,7 @@ MonoBehaviour:
   currentCheckpoint: {fileID: 0}
   timeStamp: 0
   boost: 200
+  boostCooldown: 5
   carRigidbody: {fileID: 0}
 --- !u!114 &-4619822754491824472
 MonoBehaviour:
@@ -810,6 +813,52 @@ MonoBehaviour:
   coloursInUse: []
   carColour: {r: 0, g: 0, b: 0, a: 0}
   meshRenderer: {fileID: 0}
+--- !u!114 &1777638668107395383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296173053406902575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 0
+      BranchSizes: 020000000100000003000000010000000100000001000000
+    VectorActionSize: 020000000100000003000000010000000100000001000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: Drive
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &-8967533409719744425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296173053406902575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c0b77bc9c7a788459c38dc643a897c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
 --- !u!1 &6292644280709748591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1195,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5296173053406902572}
     m_Modifications:
+    - target: {fileID: 1725317912486240, guid: e55149ba6f4d00741984987e258c3378, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4274653050354540, guid: e55149ba6f4d00741984987e258c3378, type: 3}
       propertyPath: m_RootOrder
       value: 11
