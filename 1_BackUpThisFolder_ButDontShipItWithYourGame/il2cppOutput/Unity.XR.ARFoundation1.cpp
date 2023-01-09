@@ -1867,6 +1867,8 @@ struct MutableRuntimeReferenceImageLibrary_t51AE6E77B281FCE9DF42C7E905A11935708A
 // UnityEngine.PropertyAttribute
 struct PropertyAttribute_t5E0CB5A6CDA6E24CBD4FF26DE3B0C29D8BB54BF0  : public Attribute_tFDA8EFEFB0711976D22474794576DAF28F7440AA
 {
+	// System.Int32 UnityEngine.PropertyAttribute::<order>k__BackingField
+	int32_t ___U3CorderU3Ek__BackingField_0;
 };
 
 // UnityEngine.Quaternion
@@ -18055,7 +18057,7 @@ IL_0022:
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_5 = ___texture1;
 		NullCheck(L_5);
 		bool L_6;
-		L_6 = VirtualFuncInvoker0< bool >::Invoke(8 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_5);
+		L_6 = VirtualFuncInvoker0< bool >::Invoke(9 /* System.Boolean UnityEngine.Texture::get_isReadable() */, L_5);
 		if (L_6)
 		{
 			goto IL_0035;
