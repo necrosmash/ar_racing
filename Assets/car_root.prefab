@@ -547,7 +547,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axleInfos: []
   maxMotorTorque: 60
-  maxSteeringAngle: 30
+  maxSteeringAngle: 15
+  grounded: 0
+  groundedRaycastDistance: 0.2
+  gravityMultiplier: -0.8
+  currentCheckpoint: {fileID: 0}
+  timeStamp: 0
+  boost: 200
+  boostCooldown: 5
+  carRigidbody: {fileID: 0}
 --- !u!1001 &1212220749134296879
 PrefabInstance:
   m_ObjectHideFlags: 0
