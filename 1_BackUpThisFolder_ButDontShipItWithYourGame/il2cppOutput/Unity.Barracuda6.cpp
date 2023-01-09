@@ -8633,7 +8633,7 @@ IL_0016_1:
 				memset((&L_13), 0, sizeof(L_13));
 				Nullable_1__ctor_m0181D7C890C70A88B2ED6FBA5706820F1657DE46((&L_13), L_12, /*hidden argument*/Nullable_1__ctor_m0181D7C890C70A88B2ED6FBA5706820F1657DE46_RuntimeMethod_var);
 				NullCheck(L_10);
-				InterfaceActionInvoker2< String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F >::Invoke(4 /* System.Void System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::Add(TKey,TValue) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_10, L_11, L_13);
+				InterfaceActionInvoker2< String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F >::Invoke(5 /* System.Void System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::Add(TKey,TValue) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_10, L_11, L_13);
 			}
 
 IL_0038_1:
@@ -8668,7 +8668,7 @@ IL_004c:
 		L_19 = ModelAnalyzer_GetDefaultInputName_m2222DCDB46AB58251DE236CDD81EEFD1FEED29F9(L_18, NULL);
 		NullCheck(L_17);
 		bool L_20;
-		L_20 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_17, L_19, (&V_1));
+		L_20 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_17, L_19, (&V_1));
 		// TensorShape? O = Xn;
 		Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F L_21 = V_1;
 		V_2 = L_21;
@@ -8724,7 +8724,7 @@ IL_0070_1:
 				String_t* L_33 = (L_31)->GetAt(static_cast<il2cpp_array_size_t>(L_32));
 				NullCheck(L_29);
 				bool L_34;
-				L_34 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_29, L_33, (&V_7));
+				L_34 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_29, L_33, (&V_7));
 				if (!L_34)
 				{
 					goto IL_009c_1;
@@ -8768,7 +8768,7 @@ IL_009e_1:
 				String_t* L_43 = L_42->___name_0;
 				Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F L_44 = V_1;
 				NullCheck(L_41);
-				InterfaceActionInvoker2< String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F >::Invoke(4 /* System.Void System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::Add(TKey,TValue) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_41, L_43, L_44);
+				InterfaceActionInvoker2< String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F >::Invoke(5 /* System.Void System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::Add(TKey,TValue) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_41, L_43, L_44);
 				// continue;
 				goto IL_0ea8_1;
 			}
@@ -8870,7 +8870,7 @@ IL_014b_1:
 				String_t* L_75 = (L_73)->GetAt(static_cast<il2cpp_array_size_t>(L_74));
 				NullCheck(L_71);
 				bool L_76;
-				L_76 = InterfaceFuncInvoker1< bool, String_t* >::Invoke(3 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::ContainsKey(TKey) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_71, L_75);
+				L_76 = InterfaceFuncInvoker1< bool, String_t* >::Invoke(4 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::ContainsKey(TKey) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_71, L_75);
 				if (!L_76)
 				{
 					goto IL_0185_1;
@@ -10257,7 +10257,7 @@ IL_08fb_1:
 				String_t* L_484 = V_33;
 				NullCheck(L_483);
 				bool L_485;
-				L_485 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_483, L_484, (&V_34));
+				L_485 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_483, L_484, (&V_34));
 				if (!L_485)
 				{
 					goto IL_0928_1;
@@ -10573,7 +10573,7 @@ IL_0a6c_1:
 				String_t* L_547 = (L_545)->GetAt(static_cast<il2cpp_array_size_t>(L_546));
 				NullCheck(L_543);
 				bool L_548;
-				L_548 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_543, L_547, (&V_36));
+				L_548 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_543, L_547, (&V_36));
 				if (!L_548)
 				{
 					goto IL_0a9c_1;
@@ -10736,7 +10736,7 @@ IL_0b34_1:
 				String_t* L_583 = (L_581)->GetAt(static_cast<il2cpp_array_size_t>(L_582));
 				NullCheck(L_579);
 				bool L_584;
-				L_584 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_579, L_583, (&V_40));
+				L_584 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_579, L_583, (&V_40));
 				if (!L_584)
 				{
 					goto IL_0b7f_1;
@@ -10761,7 +10761,7 @@ IL_0b34_1:
 				String_t* L_591 = (L_589)->GetAt(static_cast<il2cpp_array_size_t>(L_590));
 				NullCheck(L_587);
 				bool L_592;
-				L_592 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_587, L_591, (&V_41));
+				L_592 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_587, L_591, (&V_41));
 				if (!L_592)
 				{
 					goto IL_0b7f_1;
@@ -10899,7 +10899,7 @@ IL_0c25_1:
 				String_t* L_623 = V_45;
 				NullCheck(L_622);
 				bool L_624;
-				L_624 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_622, L_623, (&V_46));
+				L_624 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_622, L_623, (&V_46));
 				if (!L_624)
 				{
 					goto IL_0c42_1;
@@ -11411,7 +11411,7 @@ IL_0e92_1:
 				String_t* L_730 = L_729->___name_0;
 				Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F L_731 = V_2;
 				NullCheck(L_728);
-				InterfaceActionInvoker2< String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F >::Invoke(4 /* System.Void System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::Add(TKey,TValue) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_728, L_730, L_731);
+				InterfaceActionInvoker2< String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F >::Invoke(5 /* System.Void System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::Add(TKey,TValue) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_728, L_730, L_731);
 			}
 
 IL_0ea8_1:
@@ -11714,7 +11714,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool ModelAnalyzer_TryGetOutputTensorShape_mB
 		String_t* L_5 = ___output2;
 		NullCheck(L_4);
 		bool L_6;
-		L_6 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(5 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_4, L_5, (&V_1));
+		L_6 = InterfaceFuncInvoker2< bool, String_t*, Nullable_1_t7F867C797BCAD9B517FB865A137342EED7E2198F* >::Invoke(7 /* System.Boolean System.Collections.Generic.IDictionary`2<System.String,System.Nullable`1<Unity.Barracuda.TensorShape>>::TryGetValue(TKey,TValue&) */, IDictionary_2_tE7550E851CEF42279B69D8601C0C071CDA1DE9CD_il2cpp_TypeInfo_var, L_4, L_5, (&V_1));
 		// if (found && (dynamicShape != null))
 		bool L_7 = L_6;
 		G_B1_0 = L_7;
