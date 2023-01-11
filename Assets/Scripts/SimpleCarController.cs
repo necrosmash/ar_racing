@@ -49,6 +49,9 @@ public class SimpleCarController : MonoBehaviour
     public Rigidbody carRigidbody;
     private InputAsset controllerInput;
 
+    public AudioSource driving;
+    public AudioSource crash;
+    public AudioSource skid;
 
     private void Awake()
     {
@@ -79,6 +82,14 @@ public class SimpleCarController : MonoBehaviour
         Vector2 movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
         float motor = maxMotorTorque * movementInput.y;
         float steering = maxSteeringAngle * movementInput.x;
+
+        float moving = movementInput.x + movementInput.y;
+
+        if (!driving.isPlaying && moving > 0f)
+        {
+            driving.Play();
+        }
+        
 
         foreach (AxleInfo axleInfo in axleInfos)
         {
@@ -184,6 +195,10 @@ public class SimpleCarController : MonoBehaviour
 
         if (controllerInput.CarControllerAM.Spin.IsPressed())
         {
+            if (!skid.isPlaying)
+            {
+                skid.Play();
+            }
             // Disactivated so that both shift and space bar are not pressed at the same time. 
             carRigidbody.AddForce(transform.up * 0.5f, ForceMode.Acceleration);
 
