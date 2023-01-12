@@ -35059,14 +35059,22 @@ struct AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC  : public MonoBehavio
 {
 	// UnityEngine.GameObject AR_Cursor::track
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___track_4;
+	// UnityEngine.GameObject AR_Cursor::carPrefab
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___carPrefab_5;
+	// UnityEngine.GameObject AR_Cursor::carGO
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___carGO_6;
 	// UnityEngine.GameObject AR_Cursor::onScreenInput
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___onScreenInput_5;
-	// UnityEngine.XR.ARFoundation.ARRaycastManager AR_Cursor::raycastManager
-	ARRaycastManager_tD9459374F0F5BD9E2E4A8A1C665E7F33F9C2EE44* ___raycastManager_6;
-	// System.Boolean AR_Cursor::isPlacing
-	bool ___isPlacing_7;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___onScreenInput_7;
 	// UnityEngine.GameObject AR_Cursor::placeButtonGO
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___placeButtonGO_8;
+	// UnityEngine.GameObject AR_Cursor::roadMeshHolder
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___roadMeshHolder_9;
+	// UnityEngine.XR.ARFoundation.ARRaycastManager AR_Cursor::raycastManager
+	ARRaycastManager_tD9459374F0F5BD9E2E4A8A1C665E7F33F9C2EE44* ___raycastManager_10;
+	// UnityEngine.Camera AR_Cursor::arCamera
+	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___arCamera_11;
+	// System.Int32 AR_Cursor::placementIdx
+	int32_t ___placementIdx_12;
 };
 
 // Unity.MLAgents.Integrations.Match3.AbstractBoard
