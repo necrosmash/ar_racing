@@ -211,8 +211,6 @@ UnityEngine.Application::set_targetFrameRate
 UnityEngine.Application::get_platform
 UnityEngine.Application::GetStackTraceLogType
 UnityEngine.AsyncOperation::InternalDestroy
-UnityEngine.AudioSettings::StartAudioOutput
-UnityEngine.AudioSettings::StopAudioOutput
 UnityEngine.Behaviour::get_enabled
 UnityEngine.Behaviour::get_isActiveAndEnabled
 UnityEngine.Behaviour::set_enabled
@@ -233,6 +231,7 @@ UnityEngine.Camera::ResetProjectionMatrix
 UnityEngine.Camera::ScreenPointToRay_Injected
 UnityEngine.Camera::ScreenToViewportPoint_Injected
 UnityEngine.Camera::SetupCurrent
+UnityEngine.Camera::ViewportToScreenPoint_Injected
 UnityEngine.Camera::WorldToScreenPoint_Injected
 UnityEngine.Camera::get_pixelRect_Injected
 UnityEngine.Camera::get_projectionMatrix_Injected
