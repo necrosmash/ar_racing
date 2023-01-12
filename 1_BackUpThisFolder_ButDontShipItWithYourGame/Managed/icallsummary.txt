@@ -211,6 +211,10 @@ UnityEngine.Application::set_targetFrameRate
 UnityEngine.Application::get_platform
 UnityEngine.Application::GetStackTraceLogType
 UnityEngine.AsyncOperation::InternalDestroy
+UnityEngine.AudioSettings::StartAudioOutput
+UnityEngine.AudioSettings::StopAudioOutput
+UnityEngine.AudioSource::get_isPlaying
+UnityEngine.AudioSource::PlayHelper
 UnityEngine.Behaviour::get_enabled
 UnityEngine.Behaviour::get_isActiveAndEnabled
 UnityEngine.Behaviour::set_enabled

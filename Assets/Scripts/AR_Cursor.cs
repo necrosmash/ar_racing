@@ -18,12 +18,13 @@ public class AR_Cursor : MonoBehaviour
     void Start()
     {
         if (trackPrefab == null) Debug.LogError("carPrefab is null");
-        track = Instantiate(trackPrefab);
+        else track = Instantiate(trackPrefab);
         raycastManager = GameObject.Find("AR Session Origin").GetComponent<ARRaycastManager>();
     }
 
     void Update()
     {
+        if (raycastManager == null || track == null) return;
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var arRaycastHits = new List<ARRaycastHit>();
         raycastManager.Raycast(screenCenter, arRaycastHits, TrackableType.Planes);

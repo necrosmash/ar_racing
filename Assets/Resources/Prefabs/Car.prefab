@@ -740,7 +740,7 @@ Transform:
   m_GameObject: {fileID: 5296173053406902575}
   m_LocalRotation: {x: 0.0005853583, y: 0.027042976, z: 0.021632498, w: 0.9994}
   m_LocalPosition: {x: 1.3191891, y: 0.1, z: -2.838077}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5296173052853559096}
@@ -790,7 +790,7 @@ MonoBehaviour:
     motor: 0
     steering: 0
   maxMotorTorque: 60
-  maxSteeringAngle: 30
+  maxSteeringAngle: 10
   grounded: 0
   groundedRaycastDistance: 0.2
   gravityMultiplier: -0.8
@@ -801,7 +801,7 @@ MonoBehaviour:
   carRigidbody: {fileID: 0}
   driving: {fileID: 7326871103758643692}
   crash: {fileID: 5239630244059608983}
-  skid: {fileID: 9079351796122160197}
+  skid: {fileID: 4707263046707512605}
 --- !u!114 &-4619822754491824472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,6 +1434,12 @@ AudioSource:
 --- !u!82 &2840640179368290127 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5380087676054247252, guid: 05151e1599127bc449cb4d5397887d30,
+    type: 3}
+  m_PrefabInstance: {fileID: 7908903746390290459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &4707263046707512605 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3211520361447978246, guid: 05151e1599127bc449cb4d5397887d30,
     type: 3}
   m_PrefabInstance: {fileID: 7908903746390290459}
   m_PrefabAsset: {fileID: 0}
