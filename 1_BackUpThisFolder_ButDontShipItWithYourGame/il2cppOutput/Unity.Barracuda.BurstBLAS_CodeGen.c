@@ -50,14 +50,14 @@ static Il2CppTokenAdjustorThunkPair s_adjustorThunks[3] =
 };
 static const int32_t s_InvokerIndices[8] = 
 {
-	7470,
-	7470,
+	7690,
+	7690,
 	15,
 	13,
-	7685,
-	6119,
-	1139,
-	1139,
+	7920,
+	6296,
+	1157,
+	1157,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Unity_Barracuda_BurstBLAS_CodeGenModule;
 const Il2CppCodeGenModule g_Unity_Barracuda_BurstBLAS_CodeGenModule = 
