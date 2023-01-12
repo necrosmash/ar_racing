@@ -11,8 +11,6 @@ public class AR_Cursor : MonoBehaviour
     
     private GameObject onScreenInput;
 
-    //private Pose placementCursorPose;
-
     private ARRaycastManager raycastManager;
 
     private bool isPlacing; // whether or not we're currently placing a track
@@ -41,29 +39,13 @@ public class AR_Cursor : MonoBehaviour
         if (arRaycastHits.Count > 0)
         {
             track.transform.SetPositionAndRotation(arRaycastHits[0].pose.position, arRaycastHits[0].pose.rotation);
-            Debug.Log("ctig10 checkpointholder pos" + 
-                "x" + transform.Find("CheckPointHolder").transform.position.x +
-            "y" + transform.Find("CheckPointHolder").transform.position.y +
-            "z" + transform.Find("CheckPointHolder").transform.position.z);
+            Debug.Log("ctig10 setting track to active");
             track.SetActive(true);
+            /*Debug.Log("ctig10 checkpointholder pos" + 
+                "x" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.x +
+            "y" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.y +
+            "z" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.z);*/
         }
-
-        /*if (Input.touchCount > 0
-            && Input.GetTouch(0).phase == TouchPhase.Began)
-            //&& sphereGo == null)
-        {
-            Debug.Log("ctig Touch Detected");
-
-            Vector2 touchPosition = Input.GetTouch(0).position;
-            List<ARRaycastHit> hits = new List<ARRaycastHit>();
-
-            if (raycastManager.Raycast(touchPosition, hits, TrackableType.Planes))
-            {
-                Debug.Log("ctig Raycast hit");
-                Pose hitPose = hits[0].pose;
-                GameObject.Instantiate(trackPrefab, hitPose.position, hitPose.rotation);
-            }
-        }*/
     }
 
     public void placeTrack()
