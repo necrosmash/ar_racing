@@ -24728,6 +24728,8 @@ struct AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC  : public MonoBehavio
 	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___arCamera_11;
 	// System.Int32 AR_Cursor::placementIdx
 	int32_t ___placementIdx_12;
+	// UnityEngine.MeshRenderer AR_Cursor::roadMesh
+	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ___roadMesh_13;
 };
 
 // Unity.MLAgents.Integrations.Match3.AbstractBoard
@@ -30194,9 +30196,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7348[6] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7349[6] = 
 {
 	static_cast<int32_t>(offsetof(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955, ___m_FeatheringWidth_4)),static_cast<int32_t>(offsetof(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955_StaticFields, ___s_FeatheringUVs_5)),static_cast<int32_t>(offsetof(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955_StaticFields, ___s_Vertices_6)),static_cast<int32_t>(offsetof(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955, ___m_PlaneMeshVisualizer_7)),static_cast<int32_t>(offsetof(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955, ___m_Plane_8)),static_cast<int32_t>(offsetof(ARFeatheredPlaneMeshVisualizer_t5B508CD2D37F908F4359D7DED031B3C357E34955, ___m_FeatheredPlaneMaterial_9)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7350[9] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7350[10] = 
 {
-	static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___track_4)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___carPrefab_5)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___carGO_6)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___onScreenInput_7)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___placeButtonGO_8)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___roadMeshHolder_9)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___raycastManager_10)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___arCamera_11)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___placementIdx_12)),};
+	static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___track_4)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___carPrefab_5)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___carGO_6)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___onScreenInput_7)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___placeButtonGO_8)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___roadMeshHolder_9)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___raycastManager_10)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___arCamera_11)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___placementIdx_12)),static_cast<int32_t>(offsetof(AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC, ___roadMesh_13)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable7351[4] = 
 {
 	static_cast<int32_t>(offsetof(U3CSpinCarU3Ed__4_tA05ED3A1D39077445A0380DB486090E2586AD89F, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CSpinCarU3Ed__4_tA05ED3A1D39077445A0380DB486090E2586AD89F, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CSpinCarU3Ed__4_tA05ED3A1D39077445A0380DB486090E2586AD89F, ___U3CU3E4__this_2)),static_cast<int32_t>(offsetof(U3CSpinCarU3Ed__4_tA05ED3A1D39077445A0380DB486090E2586AD89F, ___car_3)),};

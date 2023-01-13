@@ -35075,6 +35075,8 @@ struct AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC  : public MonoBehavio
 	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___arCamera_11;
 	// System.Int32 AR_Cursor::placementIdx
 	int32_t ___placementIdx_12;
+	// UnityEngine.MeshRenderer AR_Cursor::roadMesh
+	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ___roadMesh_13;
 };
 
 // Unity.MLAgents.Integrations.Match3.AbstractBoard
