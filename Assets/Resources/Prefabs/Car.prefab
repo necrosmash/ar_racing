@@ -724,6 +724,7 @@ GameObject:
   - component: {fileID: 1777638668107395383}
   - component: {fileID: -8967533409719744425}
   - component: {fileID: 9161364109346184059}
+  - component: {fileID: 7938067691479961087}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -884,6 +885,19 @@ MonoBehaviour:
   Starting2: {fileID: 772893954611300626}
   Running: {fileID: 0}
   Running2: {fileID: 0}
+--- !u!65 &7938067691479961087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5296173053406902575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6292644280709748591
 GameObject:
   m_ObjectHideFlags: 0
