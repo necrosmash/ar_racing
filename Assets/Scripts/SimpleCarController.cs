@@ -26,11 +26,13 @@ public class SimpleCarController : MonoBehaviour
     public CheckPointSingle currentCheckpoint;
 
     //Boosting 
-    public float timeStamp = 0f;
+    private float timeStamp = 0f;
     public float boost = 200f;
 
     [SerializeField]
     private float boostCooldown = 5f;
+
+    public float spinVal = 0.002f;
 
     /*
     float force = 0.5f;
@@ -203,7 +205,7 @@ public class SimpleCarController : MonoBehaviour
             carRigidbody.AddForce(transform.up * 0.5f, ForceMode.Acceleration);
 
             // Make car spin like a beyblade
-            carRigidbody.AddTorque(transform.up * steering * 0.2f, ForceMode.Impulse);
+            carRigidbody.AddTorque(transform.up * steering * spinVal, ForceMode.Impulse);
 
             // Make car move forwards.
             carRigidbody.AddForce(transform.forward * 2f, ForceMode.Acceleration);

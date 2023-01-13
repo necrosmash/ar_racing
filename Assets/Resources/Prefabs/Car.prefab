@@ -790,7 +790,7 @@ MonoBehaviour:
     rightWheel: {fileID: 5296173053322622646}
     motor: 0
     steering: 0
-  maxMotorTorque: 50
+  maxMotorTorque: 40
   maxSteeringAngle: 5
   grounded: 0
   groundedRaycastDistance: 0.2
@@ -799,6 +799,7 @@ MonoBehaviour:
   timeStamp: 0
   boost: 20
   boostCooldown: 5
+  spinVal: 0.002
   carRigidbody: {fileID: 0}
   driving: {fileID: 7326871103758643692}
   crash: {fileID: 5239630244059608983}
