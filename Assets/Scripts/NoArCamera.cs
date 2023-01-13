@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class NoArCamera : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     private GameObject toFollow;
     
     // Start is called before the first frame update
     void Start()
     {
-        if (toFollow == null)
-        {
-            //toFollow = GameObject.Find("Car");
-            Debug.LogError("ctig4 to follow is null");
-        }
+        toFollow = GameObject.Find("Car(Clone)");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (toFollow == null) toFollow = GameObject.Find("Car(Clone)");
+        if (toFollow == null) return;
+            
         transform.LookAt(toFollow.transform);
     }
 }

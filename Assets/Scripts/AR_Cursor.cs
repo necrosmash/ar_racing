@@ -22,7 +22,7 @@ public class AR_Cursor : MonoBehaviour
     private ARRaycastManager raycastManager;
     private Camera arCamera;
     
-    private int placementIdx; // whether or not we're currently placing a track
+    private bool isPlacing; // whether or not we're currently placing a track
     private MeshRenderer roadMesh;
 
     private ARPlaneManager planeManager;
@@ -53,7 +53,7 @@ public class AR_Cursor : MonoBehaviour
         if (anchorManager == null) Debug.LogError("ctig10 anchorManager is null");
 
         onScreenInput.SetActive(false);
-        placementIdx = 0;
+        isPlacing = true;
     }
 
     void Update()
@@ -61,60 +61,26 @@ public class AR_Cursor : MonoBehaviour
         Debug.Log("ctig11 y difference: " +
             (track.transform.Find("Path Creator").transform.position.y - track.transform.Find("CheckPointHolder").transform.position.y).ToString());
 
-        if (placementIdx >= 2) return;
+        if (!isPlacing) return;
         if (raycastManager == null || track == null) return;
         
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var arRaycastHits = new List<ARRaycastHit>();
         bool isHit = raycastManager.Raycast(screenCenter, arRaycastHits, TrackableType.Planes);
 
-        if (isHit && placementIdx == 0 && arRaycastHits.Count > 0)
+        if (isHit && isPlacing && arRaycastHits.Count > 0)
         {
             currentNearestHit = arRaycastHits[0];
             track.transform.SetPositionAndRotation(currentNearestHit.pose.position, currentNearestHit.pose.rotation);
             Debug.Log("ctig10 setting track to active");
 
             roadMesh.enabled = true;
-
-            //track.SetActive(true);
-            /*Debug.Log("ctig10 checkpointholder pos" + 
-                "x" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.x +
-            "y" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.y +
-            "z" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.z);*/
-        }
-
-        if (placementIdx == 1)
-        {
-            Vector2 touchPosition = Input.GetTouch(0).position;
-
-            List<RaycastHit> hits = new List<RaycastHit>();
-            hits.AddRange(Physics.RaycastAll(arCamera.ScreenPointToRay(touchPosition)));
-                
-            foreach (RaycastHit hit in hits)
-            {
-                //Debug.Log("ctig10 WE PRESSED: " + hit.transform.name);
-                //Debug.Log("ctig10 RMH: " + roadMeshHolder);
-                //Debug.Log("ctig10 RMH T: " + roadMeshHolder.transform);
-                //Debug.Log("ctig10 RMH N: " + roadMeshHolder.name);
-                    
-                if (hit.transform.gameObject.Equals(roadMeshHolder))
-                {
-                    //Debug.Log("ctig10 WE HIT SAMPLE TRACK");
-                    carGO = Instantiate(carPrefab, hit.point, Quaternion.identity);
-                    placementIdx = 2;
-                }
-                //else
-                //{
-                //    Debug.Log("ctig10 one: " + hit.transform.name);
-                //    Debug.Log("ctig10 two: " + roadMeshHolder.transform.name);
-                //}
-            }
         }
     }
 
     public void placeTrack()
     {
-        placementIdx = 1;
+        isPlacing = false;
         placeButtonGO.SetActive(false);
         onScreenInput.SetActive(true);
 
@@ -137,9 +103,18 @@ public class AR_Cursor : MonoBehaviour
         {
             point = anchorManager.AddAnchor(currentNearestHit.pose); //is obsolete but we can ignore this for now
             Debug.Log("Added another anchor " + currentNearestHit);
-
         }
 
         track.transform.parent = point.transform;
+
+        GameObject startingPoint = track.transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").gameObject;
+        carGO = Instantiate(
+            carPrefab,
+            new Vector3(
+                startingPoint.transform.position.x,
+                startingPoint.transform.position.y + 0.1f,
+                startingPoint.transform.position.z
+            ),
+            Quaternion.identity);
     }
 }

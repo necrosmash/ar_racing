@@ -251,6 +251,18 @@ public class SimpleCarController : MonoBehaviour
         visualWheel.transform.rotation = rotation * offsetRotation;
     }
 
+    private void Update()
+    {
+        if (currentCheckpoint == null)
+        {
+            Debug.Log("ctig12 current checkpoint NULL");
+            currentCheckpoint =
+                GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").GetComponent<CheckPointSingle>();
+            return;
+        }
+        Debug.Log("ctig12 current checkpoint: " + currentCheckpoint.name);
+    }
+
     public void FixedUpdate()
     {
 
