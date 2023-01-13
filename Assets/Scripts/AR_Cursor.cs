@@ -45,6 +45,9 @@ public class AR_Cursor : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("ctig11 y difference: " +
+            (track.transform.Find("Path Creator").transform.position.y - track.transform.Find("CheckPointHolder").transform.position.y).ToString());
+
         if (placementIdx >= 2) return;
         if (raycastManager == null || track == null) return;
         
