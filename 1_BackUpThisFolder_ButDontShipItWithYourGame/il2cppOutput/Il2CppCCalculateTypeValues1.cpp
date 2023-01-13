@@ -35077,6 +35077,8 @@ struct AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC  : public MonoBehavio
 	int32_t ___placementIdx_12;
 	// UnityEngine.MeshRenderer AR_Cursor::roadMesh
 	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ___roadMesh_13;
+	// UnityEngine.XR.ARFoundation.ARPlaneManager AR_Cursor::planeManager
+	ARPlaneManager_t9DA6C512BDCFFBEE8B3DAA7170EB3BFFDE26A928* ___planeManager_14;
 };
 
 // Unity.MLAgents.Integrations.Match3.AbstractBoard

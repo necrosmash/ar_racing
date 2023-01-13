@@ -24,7 +24,9 @@ public class AR_Cursor : MonoBehaviour
     
     private int placementIdx; // whether or not we're currently placing a track
     private MeshRenderer roadMesh;
-    
+
+    private ARPlaneManager planeManager;
+
     void Start()
     {
         roadMesh = roadMeshHolder.GetComponent<MeshRenderer>();
@@ -35,6 +37,7 @@ public class AR_Cursor : MonoBehaviour
         arCamera = GameObject.Find("AR Session Origin").transform.Find("AR Camera").GetComponent<Camera>();
         placeButtonGO = gameObject.transform.Find("Canvas/Button").gameObject;
         onScreenInput = GameObject.Find("OnScreenInput");
+        planeManager = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();
 
         if (track == null) Debug.LogError("ctig10 track is null");
         if (raycastManager == null) Debug.LogError("ctig10 raycastManager is null");
@@ -42,6 +45,7 @@ public class AR_Cursor : MonoBehaviour
         if (placeButtonGO == null) Debug.LogError("ctig10 placeButtonGO is null");
         if (onScreenInput == null) Debug.LogError("ctig10 onScreenInput is null");
         if (roadMeshHolder == null) Debug.LogError("ctig10 roadMeshHolder is null");
+        if (planeManager == null) Debug.LogError("ctig10 plan is null");
 
         onScreenInput.SetActive(false);
         placementIdx = 0;
@@ -107,5 +111,12 @@ public class AR_Cursor : MonoBehaviour
         placementIdx = 1;
         placeButtonGO.SetActive(false);
         onScreenInput.SetActive(true);
+
+        // disable tracking and all current trackables
+        planeManager.enabled = false;
+        foreach (var plane in planeManager.trackables)
+        {
+            plane.gameObject.SetActive(false);
+        }
     }
 }
