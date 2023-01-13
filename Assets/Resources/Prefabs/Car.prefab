@@ -761,7 +761,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5296173053406902575}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -790,8 +790,8 @@ MonoBehaviour:
     rightWheel: {fileID: 5296173053322622646}
     motor: 0
     steering: 0
-  maxMotorTorque: 100
-  maxSteeringAngle: 10
+  maxMotorTorque: 50
+  maxSteeringAngle: 5
   grounded: 0
   groundedRaycastDistance: 0.2
   gravityMultiplier: -0.8
