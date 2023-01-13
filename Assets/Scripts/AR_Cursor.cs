@@ -23,9 +23,13 @@ public class AR_Cursor : MonoBehaviour
     private Camera arCamera;
     
     private int placementIdx; // whether or not we're currently placing a track
+    private MeshRenderer roadMesh;
     
     void Start()
     {
+        roadMesh = roadMeshHolder.GetComponent<MeshRenderer>();
+        roadMesh.enabled = false;
+
         if (track == null) Debug.LogError("track is null");
         raycastManager = GameObject.Find("AR Session Origin").GetComponent<ARRaycastManager>();
         arCamera = GameObject.Find("AR Session Origin").transform.Find("AR Camera").GetComponent<Camera>();
@@ -59,7 +63,10 @@ public class AR_Cursor : MonoBehaviour
         {
             track.transform.SetPositionAndRotation(arRaycastHits[0].pose.position, arRaycastHits[0].pose.rotation);
             Debug.Log("ctig10 setting track to active");
-            track.SetActive(true);
+
+            roadMesh.enabled = true;
+
+            //track.SetActive(true);
             /*Debug.Log("ctig10 checkpointholder pos" + 
                 "x" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.x +
             "y" + GameObject.Find("Track").transform.Find("CheckPointHolder").position.y +
