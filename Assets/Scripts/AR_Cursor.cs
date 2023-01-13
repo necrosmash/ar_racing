@@ -26,6 +26,9 @@ public class AR_Cursor : MonoBehaviour
     private MeshRenderer roadMesh;
 
     private ARPlaneManager planeManager;
+    private ARAnchorManager anchorManager;
+
+    ARRaycastHit currentNearestHit;
 
     void Start()
     {
@@ -38,6 +41,7 @@ public class AR_Cursor : MonoBehaviour
         placeButtonGO = gameObject.transform.Find("Canvas/Button").gameObject;
         onScreenInput = GameObject.Find("OnScreenInput");
         planeManager = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();
+        anchorManager = GameObject.Find("AR Session Origin").GetComponent<ARAnchorManager>();
 
         if (track == null) Debug.LogError("ctig10 track is null");
         if (raycastManager == null) Debug.LogError("ctig10 raycastManager is null");
@@ -45,7 +49,8 @@ public class AR_Cursor : MonoBehaviour
         if (placeButtonGO == null) Debug.LogError("ctig10 placeButtonGO is null");
         if (onScreenInput == null) Debug.LogError("ctig10 onScreenInput is null");
         if (roadMeshHolder == null) Debug.LogError("ctig10 roadMeshHolder is null");
-        if (planeManager == null) Debug.LogError("ctig10 plan is null");
+        if (planeManager == null) Debug.LogError("ctig10 planeManager is null");
+        if (anchorManager == null) Debug.LogError("ctig10 anchorManager is null");
 
         onScreenInput.SetActive(false);
         placementIdx = 0;
@@ -61,11 +66,12 @@ public class AR_Cursor : MonoBehaviour
         
         var screenCenter = Camera.current.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
         var arRaycastHits = new List<ARRaycastHit>();
-        raycastManager.Raycast(screenCenter, arRaycastHits, TrackableType.Planes);
+        bool isHit = raycastManager.Raycast(screenCenter, arRaycastHits, TrackableType.Planes);
 
-        if (placementIdx == 0 && arRaycastHits.Count > 0)
+        if (isHit && placementIdx == 0 && arRaycastHits.Count > 0)
         {
-            track.transform.SetPositionAndRotation(arRaycastHits[0].pose.position, arRaycastHits[0].pose.rotation);
+            currentNearestHit = arRaycastHits[0];
+            track.transform.SetPositionAndRotation(currentNearestHit.pose.position, currentNearestHit.pose.rotation);
             Debug.Log("ctig10 setting track to active");
 
             roadMesh.enabled = true;
@@ -114,9 +120,26 @@ public class AR_Cursor : MonoBehaviour
 
         // disable tracking and all current trackables
         planeManager.enabled = false;
-        foreach (var plane in planeManager.trackables)
+        foreach (var trackablePlane in planeManager.trackables)
         {
-            plane.gameObject.SetActive(false);
+            trackablePlane.gameObject.SetActive(false);
         }
+
+        // anchor the track
+        ARPlane plane = planeManager.GetPlane(currentNearestHit.trackableId);
+        ARAnchor point;
+        if (plane != null)
+        {
+            point = anchorManager.AttachAnchor(plane, currentNearestHit.pose);
+            Debug.Log("ctig10 Added an anchor to a plane " + currentNearestHit);
+        }
+        else
+        {
+            point = anchorManager.AddAnchor(currentNearestHit.pose); //is obsolete but we can ignore this for now
+            Debug.Log("Added another anchor " + currentNearestHit);
+
+        }
+
+        track.transform.parent = point.transform;
     }
 }

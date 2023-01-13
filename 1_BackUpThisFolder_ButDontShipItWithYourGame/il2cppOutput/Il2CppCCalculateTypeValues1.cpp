@@ -35079,6 +35079,10 @@ struct AR_Cursor_tED1E32B603B1B5CD73FCA2274329B77D6B6260FC  : public MonoBehavio
 	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ___roadMesh_13;
 	// UnityEngine.XR.ARFoundation.ARPlaneManager AR_Cursor::planeManager
 	ARPlaneManager_t9DA6C512BDCFFBEE8B3DAA7170EB3BFFDE26A928* ___planeManager_14;
+	// UnityEngine.XR.ARFoundation.ARAnchorManager AR_Cursor::anchorManager
+	ARAnchorManager_tF68C46300BD6F2E83E3360BF9297C3C50F5D6B3E* ___anchorManager_15;
+	// UnityEngine.XR.ARFoundation.ARRaycastHit AR_Cursor::currentNearestHit
+	ARRaycastHit_tB32B5606815B8A7DF479C00187A852F8D20E3B70 ___currentNearestHit_16;
 };
 
 // Unity.MLAgents.Integrations.Match3.AbstractBoard
