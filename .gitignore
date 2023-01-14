@@ -70,3 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# this keeps causing conflicts and we don't seem to need it
+Assets/ML-Agents/Timers/TrackScene_timers.json

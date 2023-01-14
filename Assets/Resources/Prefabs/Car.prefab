@@ -510,7 +510,7 @@ BoxCollider:
   m_GameObject: {fileID: 5296173052162130277}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -576,8 +576,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5296173052853559097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 3}
+  m_LocalPosition: {x: 0, y: 0.067, z: 0}
+  m_LocalScale: {x: 1, y: 0.8, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5296173053406902572}
@@ -788,15 +788,14 @@ MonoBehaviour:
     steering: 1
   - leftWheel: {fileID: 5296173052131448159}
     rightWheel: {fileID: 5296173053322622646}
-    motor: 0
+    motor: 1
     steering: 0
-  maxMotorTorque: 40
-  maxSteeringAngle: 5
+  maxMotorTorque: 25
+  maxSteeringAngle: 8
   grounded: 0
   groundedRaycastDistance: 0.2
   gravityMultiplier: -0.8
   currentCheckpoint: {fileID: 0}
-  timeStamp: 0
   boost: 20
   boostCooldown: 5
   spinVal: 0.002
