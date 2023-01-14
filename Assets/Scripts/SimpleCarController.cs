@@ -266,7 +266,7 @@ public class SimpleCarController : MonoBehaviour
             currentCheckpoint =
                 GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 1(Clone)").GetComponent<CheckPointSingle>();
         }
-        Debug.Log("ctig12 current checkpoint: " + currentCheckpoint.name);
+        //Debug.Log("ctig12 current checkpoint: " + currentCheckpoint.name);
     }
 
     public void FixedUpdate()
