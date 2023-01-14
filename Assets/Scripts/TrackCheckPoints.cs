@@ -61,6 +61,7 @@ public class TrackCheckPoints : PathSceneTool
                     point.y + checkPoint.GetComponent<BoxCollider>().size.y * checkPoint.transform.localScale.y / 32,
                     point.z),
                 rot, holder.transform);
+            checkPointLast.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
             checkPointFirst = checkPointLast;
             dst += spacing;
@@ -80,6 +81,9 @@ public class TrackCheckPoints : PathSceneTool
                 rot, holder.transform);
                 checkPointLast.NextCheckpoint = c;
                 checkPointLast = c;
+
+                if (i != 1)
+                    checkPointLast.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
                 dst += spacing;
                 i += 1;
