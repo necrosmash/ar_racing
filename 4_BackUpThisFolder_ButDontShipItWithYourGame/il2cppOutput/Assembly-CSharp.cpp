@@ -10050,20 +10050,6 @@ IL_0129:
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_75), (0.0f), ((float)il2cpp_codegen_subtract(L_74, (1.0f))), (0.0f), /*hidden argument*/NULL);
 		NullCheck(L_73);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_73, L_75, NULL);
-		// lowerBounds.transform.localScale = new Vector3(maxX - minX, 1, maxZ - minZ);
-		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_76 = __this->___lowerBounds_10;
-		NullCheck(L_76);
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_77;
-		L_77 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_76, NULL);
-		float L_78 = V_1;
-		float L_79 = V_2;
-		float L_80 = V_3;
-		float L_81 = V_4;
-		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_82;
-		memset((&L_82), 0, sizeof(L_82));
-		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_82), ((float)il2cpp_codegen_subtract(L_78, L_79)), (1.0f), ((float)il2cpp_codegen_subtract(L_80, L_81)), /*hidden argument*/NULL);
-		NullCheck(L_77);
-		Transform_set_localScale_mBA79E811BAF6C47B80FF76414C12B47B3CD03633(L_77, L_82, NULL);
 		// }
 		return;
 	}
