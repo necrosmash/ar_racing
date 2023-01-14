@@ -50,8 +50,6 @@ public class ImageDetecting : MonoBehaviour
         Color car4 = Color.magenta;
         Color car5 = Color.green;
 
-        carColor = car1;
-
         switch (key)
         {
             case "car1":
@@ -68,6 +66,9 @@ public class ImageDetecting : MonoBehaviour
                 break;
             case "car5":
                 carColor = car5;
+                break;
+            default:
+                carColor = Color.black;
                 break;
         }
         
@@ -94,8 +95,6 @@ public class ImageDetecting : MonoBehaviour
                 mesh.material.color = carColor;
             }
         }
-
-        
 
         Debug.Log("Found an image: " + img.referenceImage.name + " ("
            + img.trackingState + ")");
