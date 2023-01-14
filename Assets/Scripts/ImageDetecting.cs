@@ -50,8 +50,26 @@ public class ImageDetecting : MonoBehaviour
         Color car4 = Color.magenta;
         Color car5 = Color.green;
 
-
         carColor = car1;
+
+        switch (key)
+        {
+            case "car1":
+                carColor = car1;
+                break;
+            case "car2":
+                carColor = car2;
+                break;
+            case "car3":
+                carColor = car3;
+                break;
+            case "car4":
+                carColor = car4;
+                break;
+            case "car5":
+                carColor = car5;
+                break;
+        }
         
         foreach (Transform child in transform)
         {
