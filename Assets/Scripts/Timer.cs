@@ -19,65 +19,75 @@ public class Timer : MonoBehaviour
 
     private int lapNr = 0;
 
-    private float lapTime;
-    private float bestTime = 6000f;
+    private float lapTime = 0f;
+    private float bestTime = 600f;
 
     private CheckPointSingle start;
     private SimpleCarController car;
 
     void Update()
-    {   
-        if (car == null) {
+    {
+        if (car == null)
+        {
             car = GameObject.Find("Car(Clone)").GetComponent<SimpleCarController>();
         }
-        if (car == null)
+        if (start == null)
+        {
+            start = GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 1(Clone)").GetComponent<CheckPointSingle>();
+        }
+
+        if (car == null || start == null)
         {
             return;
         }
-        
-        if (car.currentCheckpoint.NextCheckpoint == start)
-        {
-            fullLap = true;
-        }
-        
-        if (car.nextCheckpoint == start)
+
+
+        //Debug.Log(car.currentCheckpoint);
+
+        if (car.currentCheckpoint == start)
         {
             startedRace = true;
 
             if (fullLap)
-                {
-                    fullLap = false;
-                    lapFinished = true;
-                }
+            {
+                fullLap = false;
+                lapFinished = true;
+            }
+        }
+
+        if (startedRace)
+        {
+            timer += Time.deltaTime;
+            lapTime += Time.deltaTime;
+        }
+
+        if (car.currentCheckpoint.NextCheckpoint == start && startedRace)
+        {
+            Debug.Log("full lap!");
+            fullLap = true;
+        }
+
+        if (lapFinished)
+        {
+            if (lapTime < bestTime)
+            {
+                bestTime = lapTime;
             }
 
-            if (startedRace)
-            {
-                timer += Time.deltaTime;
-                lapTime += Time.deltaTime;
-            }
+            lapTime = 0f;
+            timer = 0f;
+            lapFinished = false;
+        }
 
-            if (car.currentCheckpoint.NextCheckpoint == start)
-            {
-                fullLap = true;
-            }
-
-            if (lapFinished)
-            {
-                if (lapTime < bestTime)
-                {
-                    bestTime = lapTime;
-                    lapTime = 0f;
-                }
-                timer = 0f;
-                lapFinished = false;
-            }
 
         OnGUI();
+
     }
+
     private void Start()
     {
-        start = GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 1(Clone)").GetComponent<CheckPointSingle>();
+
+
     }
     private void Awake()
     {
@@ -86,7 +96,7 @@ public class Timer : MonoBehaviour
     void OnGUI()
     {
         text.text = Mathf.Floor(timer / 60).ToString("00") + ":" + Mathf.FloorToInt(timer % 60).ToString("00");
-        bestText.text = "Best lap time " + Mathf.Floor(bestTime/ 60).ToString("00") + ":" + Mathf.FloorToInt(bestTime % 60).ToString("00");
+        bestText.text = "Best lap time " + Mathf.Floor(bestTime / 60).ToString("00") + ":" + Mathf.FloorToInt(bestTime % 60).ToString("00");
 
     }
 }

@@ -58,9 +58,6 @@ public class AR_Cursor : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("ctig11 y difference: " +
-            (track.transform.Find("Path Creator").transform.position.y - track.transform.Find("CheckPointHolder").transform.position.y).ToString());
-
         if (!isPlacing) return;
         if (raycastManager == null || track == null) return;
         
@@ -112,7 +109,7 @@ public class AR_Cursor : MonoBehaviour
             carPrefab,
             new Vector3(
                 startingPoint.transform.position.x,
-                startingPoint.transform.position.y + 0.1f,
+                startingPoint.transform.position.y,
                 startingPoint.transform.position.z
             ),
             Quaternion.identity);

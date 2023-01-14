@@ -31,9 +31,11 @@ public class TrackCheckPoints : PathSceneTool
         if (pathCreator != null/* && prefab != null*/ && holder != null)
         {
             DestroyObjects();
-            
+
             // path = pathCreator.path;
             //RoadMeshCreator roadMeshCreator = pathCreator.GetComponent<RoadMeshCreator>();
+
+            Debug.Log("ctig16 generating checkpoints");
 
             // Get width from Path Creator gameobject
             width = GetComponent<RoadMeshCreator>().roadWidth * 2;

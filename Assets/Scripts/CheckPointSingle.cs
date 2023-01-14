@@ -26,22 +26,22 @@ public class CheckPointSingle : MonoBehaviour
             // currentCheckpoint is actually the current checkpoint the car needs to go through not the last one it went through.
             if (other.gameObject.GetComponent<SimpleCarController>().nextCheckpoint == this)
             {
-                errorMessage.enabled = false;
+                if (errorMessage != null) errorMessage.enabled = false;
                 // set the car's current checkpoint to the next checkpoint
                 other.gameObject.GetComponent<SimpleCarController>().nextCheckpoint = nextCheckpoint;
                 other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint = this;
-                Debug.Log("ctig15 Car through checkpoint " + this.name);
-                Debug.Log("ctig15 Cars' next checkpoint is " + nextCheckpoint);
             }
             /*if (other.gameObject.GetComponent<SimpleCarController>().flag == true)
             {
                 other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint = this;
             }*/
         
-            else if (!other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint == this)
+            else if (other.gameObject.GetComponent<SimpleCarController>().nextCheckpoint != this &&
+                other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint != this &&
+                other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint != null)
             {
-                errorMessage.enabled = true;
-                Debug.Log("Car is going in the wrong direction!");
+                if (errorMessage != null) errorMessage.enabled = true;
+                Debug.Log("ctig16 Car is going in the wrong direction!");
                 return;
             }
 
@@ -55,7 +55,10 @@ public class CheckPointSingle : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log("ctig13" + gameObject.name + " -> " + nextCheckpoint.gameObject.name);
+        if (errorMessage == null)
+            errorMessage = GameObject.Find("OnScreenInput").transform.Find("errorText").gameObject.GetComponent<Text>();
+        
+        //Debug.Log("ctig16" + gameObject.name + " -> " + nextCheckpoint.gameObject.name);
     }
 
     /* // Change the checkpoints color
