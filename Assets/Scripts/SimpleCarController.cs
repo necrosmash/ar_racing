@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Unity.MLAgents.Integrations.Match3;
 
 [System.Serializable]
 public class AxleInfo
@@ -27,7 +28,7 @@ public class SimpleCarController : MonoBehaviour
 
     //Boosting 
     private float timeStamp = 0f;
-    public float boost = 200f;
+    public float boost;
 
     [SerializeField]
     private float boostCooldown = 5f;
@@ -73,20 +74,76 @@ public class SimpleCarController : MonoBehaviour
     public void Start()
     {
         carRigidbody = GetComponent<Rigidbody>();
-        
+
         transform.eulerAngles = new Vector3(
             transform.eulerAngles.x,
             GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").transform.eulerAngles.y,
             transform.eulerAngles.z);
 
         carRigidbody.velocity = Vector3.zero;
-        // maxMotorTorque = 300;
-        // maxSteeringAngle = 30; 
+        maxMotorTorque = 1.0f;
+        maxSteeringAngle = 150;
+        boost = 300;
     }
 
     // if currentCheckpoint changes return true
+    float mod = 0.001f;
+    float movement = 0.0f;
 
     public void Move()
+    {
+
+        Vector2 movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
+        float acceleration = (maxMotorTorque * movementInput.y) * 0.1f;
+        float steering = maxSteeringAngle * movementInput.x;
+
+        float moving = movementInput.x + movementInput.y;
+
+        if (!driving.isPlaying && movementInput.y != 0)
+        {
+            driving.Play();
+        }
+
+
+        /*if (Input.GetKey(KeyCode.C) && Time.time >= timeStamp)
+        {
+            timeStamp = Time.time + boostCooldown;
+
+            movement += boost;
+        }*/
+
+        if (controllerInput.CarControllerAM.Boost.triggered && Time.time >= timeStamp)
+        {
+            timeStamp = Time.time + boostCooldown;
+
+            movement += boost;
+        }
+
+        // movement = Boost(movement);
+        movement = Mathf.Clamp(movement + acceleration, -maxMotorTorque, maxMotorTorque);
+
+        if (movementInput.y == 0)
+        {
+            movement = Mathf.Lerp(movement, 0, 0.1f);
+        }
+
+        // Update car's position and rotation
+        transform.position += transform.forward * movement * Time.deltaTime;
+
+        // the smaller (maxMotorTorque * 10) is, the less steering will be dampened
+        transform.Rotate(Vector3.up, Mathf.Clamp(Mathf.Lerp(steering, 0, movement / (maxMotorTorque * 5)), -maxSteeringAngle, maxSteeringAngle) * Time.deltaTime);
+
+        // Update wheel visuals
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+        }
+    }
+
+
+
+    /*public void Move()
     {
         Vector2 movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
         float motor = maxMotorTorque * movementInput.y;
@@ -106,6 +163,7 @@ public class SimpleCarController : MonoBehaviour
             {
                 axleInfo.leftWheel.steerAngle = steering;
                 axleInfo.rightWheel.steerAngle = steering;
+                
             }
             if (axleInfo.motor)
             {
@@ -115,7 +173,7 @@ public class SimpleCarController : MonoBehaviour
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
-    }
+    }*/
 
     public bool IsGrounded()
     {
@@ -138,7 +196,18 @@ public class SimpleCarController : MonoBehaviour
     }
 
     // Boosting
-    public void Boost()
+    private float Boost(float mov)
+    {
+        if (controllerInput.CarControllerAM.Boost.triggered && Time.time >= timeStamp)
+        {
+            timeStamp = Time.time + boostCooldown;
+
+            mov += boost;
+        }
+        return mov;
+    }
+
+    /*public void Boost()
     {
         if (controllerInput.CarControllerAM.Boost.triggered && timeStamp <= Time.time)
         {  
@@ -147,8 +216,8 @@ public class SimpleCarController : MonoBehaviour
             timeStamp = Time.time + boostCooldown;
             Debug.Log("BOOST ACTIVATED");
         }
-    }
-    
+    }*/
+
     public void Jump()
     {
         Vector2 movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
@@ -275,7 +344,7 @@ public class SimpleCarController : MonoBehaviour
     public void FixedUpdate()
     {
 
-        
+
         /*
         grounded = IsGrounded();
 
@@ -285,7 +354,7 @@ public class SimpleCarController : MonoBehaviour
         Brake();
 
         // Activate using C or top button
-        Boost();
+        // Boost();
 
         // WASD or left stick
         Move();
@@ -301,7 +370,7 @@ public class SimpleCarController : MonoBehaviour
 
         // else
         // make the car glide if space is pressed.
-        
+
         // Unfreeeze rotation so the car can drive properly again.
         carRigidbody.constraints = RigidbodyConstraints.None;
 
