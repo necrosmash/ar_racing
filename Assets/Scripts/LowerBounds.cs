@@ -15,7 +15,7 @@ public class LowerBounds : PathSceneTool
         if (other.gameObject.tag == "Car")
         {
             // get the car's current checkpoint
-            currentCheckpoint = other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint;
+            currentCheckpoint = other.gameObject.GetComponent<SimpleCarController>().nextCheckpoint;
 
             // position the car at the current checkpoint
             other.gameObject.transform.position = currentCheckpoint.transform.position;

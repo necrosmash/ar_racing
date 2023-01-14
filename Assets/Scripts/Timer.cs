@@ -27,8 +27,8 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(car.currentCheckpoint);
-        if (car.currentCheckpoint == start)
+        Debug.Log(car.nextCheckpoint);
+        if (car.nextCheckpoint == start)
         {
             startedRace = true;
 
@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour
             lapTime += Time.deltaTime;
         }
         
-        if (car.currentCheckpoint.NextCheckpoint == start)
+        if (car.nextCheckpoint.NextCheckpoint == start)
         {
             fullLap = true;
         }

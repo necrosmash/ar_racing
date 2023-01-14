@@ -23,7 +23,7 @@ public class SimpleCarController : MonoBehaviour
 
     public float gravityMultiplier = -0.8f;
 
-    public CheckPointSingle currentCheckpoint;
+    public CheckPointSingle currentCheckpoint, nextCheckpoint;
 
     //Boosting 
     private float timeStamp = 0f;
@@ -260,10 +260,13 @@ public class SimpleCarController : MonoBehaviour
 
     private void Update()
     {
-        if (currentCheckpoint == null)
+        if (nextCheckpoint == null && currentCheckpoint == null)
         {
             Debug.Log("ctig12 current checkpoint NULL");
             currentCheckpoint =
+                GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").GetComponent<CheckPointSingle>();
+
+            nextCheckpoint =
                 GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 1(Clone)").GetComponent<CheckPointSingle>();
         }
         //Debug.Log("ctig12 current checkpoint: " + currentCheckpoint.name);

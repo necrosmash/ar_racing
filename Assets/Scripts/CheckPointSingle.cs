@@ -24,20 +24,21 @@ public class CheckPointSingle : MonoBehaviour
         if (other.gameObject.tag == "Car")
         {
             // currentCheckpoint is actually the current checkpoint the car needs to go through not the last one it went through.
-            if (other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint == this || other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint == null)
+            if (other.gameObject.GetComponent<SimpleCarController>().nextCheckpoint == this)
             {
                 errorMessage.enabled = false;
                 // set the car's current checkpoint to the next checkpoint
-                other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint = nextCheckpoint;
-                Debug.Log("Car through checkpoint " + this.name);
-                Debug.Log("Cars' next checkpoint is " + nextCheckpoint);
+                other.gameObject.GetComponent<SimpleCarController>().nextCheckpoint = nextCheckpoint;
+                other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint = this;
+                Debug.Log("ctig15 Car through checkpoint " + this.name);
+                Debug.Log("ctig15 Cars' next checkpoint is " + nextCheckpoint);
             }
             /*if (other.gameObject.GetComponent<SimpleCarController>().flag == true)
             {
                 other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint = this;
             }*/
         
-            else
+            else if (!other.gameObject.GetComponent<SimpleCarController>().currentCheckpoint == this)
             {
                 errorMessage.enabled = true;
                 Debug.Log("Car is going in the wrong direction!");
