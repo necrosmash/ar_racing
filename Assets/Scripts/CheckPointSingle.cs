@@ -52,9 +52,14 @@ public class CheckPointSingle : MonoBehaviour
         }
     }
 
-   /* // Change the checkpoints color
-    public void ChangeColor(Color color)
+    private void Update()
     {
-        gameObject.GetComponent<Material>().color = color;
-    }*/
+        //Debug.Log("ctig13" + gameObject.name + " -> " + nextCheckpoint.gameObject.name);
+    }
+
+    /* // Change the checkpoints color
+     public void ChangeColor(Color color)
+     {
+         gameObject.GetComponent<Material>().color = color;
+     }*/
 }

@@ -73,6 +73,13 @@ public class SimpleCarController : MonoBehaviour
     public void Start()
     {
         carRigidbody = GetComponent<Rigidbody>();
+        
+        transform.eulerAngles = new Vector3(
+            transform.eulerAngles.x,
+            GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").transform.eulerAngles.y,
+            transform.eulerAngles.z);
+
+        carRigidbody.velocity = Vector3.zero;
         // maxMotorTorque = 300;
         // maxSteeringAngle = 30; 
     }
@@ -257,8 +264,7 @@ public class SimpleCarController : MonoBehaviour
         {
             Debug.Log("ctig12 current checkpoint NULL");
             currentCheckpoint =
-                GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").GetComponent<CheckPointSingle>();
-            return;
+                GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 1(Clone)").GetComponent<CheckPointSingle>();
         }
         Debug.Log("ctig12 current checkpoint: " + currentCheckpoint.name);
     }

@@ -37,10 +37,10 @@ public class TrackCheckPoints : PathSceneTool
 
             // Get width from Path Creator gameobject
             width = GetComponent<RoadMeshCreator>().roadWidth * 2;
-            
+
             // Change the checkpoint size. (height, width, thickness)
-            checkPoint.transform.localScale = new Vector3(1, width, 0.1f); // This changes the prefab  directly cause we dont instanciate it
-            
+            checkPoint.transform.localScale = new Vector3(0.01f, width, 0.1f); // This changes the prefab  directly cause we dont instanciate it
+
             spacing = Mathf.Max(minSpacing, spacing);
             
             float dst = spacing;
@@ -54,8 +54,14 @@ public class TrackCheckPoints : PathSceneTool
             Vector3 point = pathCreator.path.GetPointAtDistance(dst);
             Quaternion rot = pathCreator.path.GetRotationAtDistance(dst);
             
-            checkPointLast = Instantiate(checkPoint, point + up, rot, holder.transform);
-            
+            //checkPointLast = Instantiate(checkPoint, point + up, rot, holder.transform);
+            checkPointLast = Instantiate(checkPoint,
+                new Vector3(
+                    point.x,
+                    point.y + checkPoint.GetComponent<BoxCollider>().size.y * checkPoint.transform.localScale.y / 32,
+                    point.z),
+                rot, holder.transform);
+
             checkPointFirst = checkPointLast;
             dst += spacing;
             i += 1;
@@ -66,7 +72,12 @@ public class TrackCheckPoints : PathSceneTool
 
                 //Debug.Log("CheckPoint name is " + checkPoint.name);
                 checkPoint.name = "CheckPoint " + i;
-                c = Instantiate(checkPoint, point + up, rot, holder.transform);
+                c = Instantiate(checkPoint,
+               new Vector3(
+                    point.x,
+                    point.y + checkPoint.GetComponent<BoxCollider>().size.y * checkPoint.transform.localScale.y / 32,
+                    point.z),
+                rot, holder.transform);
                 checkPointLast.NextCheckpoint = c;
                 checkPointLast = c;
 

@@ -18,7 +18,7 @@ public class CarSpawnNoAR : MonoBehaviour
             carPrefab,
             new Vector3(
                 track.transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").transform.position.x,
-                track.transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").transform.position.y + 0.1f,
+                track.transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").transform.position.y,
                 track.transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").transform.position.z
             ),
             Quaternion.identity);

@@ -25,15 +25,18 @@ public class BottomBarrierCollision : MonoBehaviour
             carRigidbody = other.gameObject.GetComponent<Rigidbody>();
             carRigidbody.rotation = Quaternion.Euler(0, 0, 0);
 
+            carRigidbody.velocity = new Vector3(0, 0, 0);
+
             // Freeze the car's rotation
             carRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             // position the car at the current checkpoint
-            other.gameObject.transform.position = currentCheckpoint.transform.position;              
+            other.gameObject.transform.position = currentCheckpoint.transform.position;
+            other.gameObject.transform.rotation = currentCheckpoint.transform.rotation;
 
             // other.gameObject.transform.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 10f, other.gameObject.transform.position.z);
 
             // for one second SpinCar
-            StartCoroutine(SpinCar(other.gameObject));
+            //StartCoroutine(SpinCar(other.gameObject));
 
         }
     }
