@@ -35540,10 +35540,14 @@ struct SimpleCarController_tD6E2D9AEE6E9D245E9F63B723B515D69DFA5B20A  : public M
 	int32_t ___frameLimit_22;
 	// System.Boolean SimpleCarController::boostFlag
 	bool ___boostFlag_23;
-	// System.Single SimpleCarController::mod
-	float ___mod_24;
 	// System.Single SimpleCarController::movement
-	float ___movement_25;
+	float ___movement_24;
+	// UnityEngine.Vector2 SimpleCarController::movementInput
+	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ___movementInput_25;
+	// System.Single SimpleCarController::acceleration
+	float ___acceleration_26;
+	// System.Single SimpleCarController::steering
+	float ___steering_27;
 };
 
 // Unity.ThrowStub
