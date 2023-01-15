@@ -29,8 +29,15 @@ public class Timer : MonoBehaviour
     {
         if (car == null)
         {
-            car = GameObject.Find("Car(Clone)").GetComponent<SimpleCarController>();
+            // for BlankAR
+            if (GameObject.Find("Car") != null && GameObject.Find("Car").GetComponent<SimpleCarController>() != null)
+                car = GameObject.Find("Car").GetComponent<SimpleCarController>();
+            
+            // for TrackScene
+            if (GameObject.Find("Car(Clone)") != null && GameObject.Find("Car(Clone)").GetComponent<SimpleCarController>() != null)
+                car = GameObject.Find("Car(Clone)").GetComponent<SimpleCarController>();
         }
+
         if (start == null)
         {
             start = GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 1(Clone)").GetComponent<CheckPointSingle>();

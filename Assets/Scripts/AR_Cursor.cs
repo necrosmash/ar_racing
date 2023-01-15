@@ -10,7 +10,6 @@ public class AR_Cursor : MonoBehaviour
     private GameObject track;
 
     [SerializeField]
-    private GameObject carPrefab;
     private GameObject carGO;
     
     private GameObject onScreenInput;
@@ -42,7 +41,7 @@ public class AR_Cursor : MonoBehaviour
         onScreenInput = GameObject.Find("OnScreenInput");
         planeManager = GameObject.Find("AR Session Origin").GetComponent<ARPlaneManager>();
         anchorManager = GameObject.Find("AR Session Origin").GetComponent<ARAnchorManager>();
-
+        
         if (track == null) Debug.LogError("ctig10 track is null");
         if (raycastManager == null) Debug.LogError("ctig10 raycastManager is null");
         if (arCamera == null) Debug.LogError("ctig10 arCamera is null");
@@ -105,13 +104,10 @@ public class AR_Cursor : MonoBehaviour
         track.transform.parent = point.transform;
 
         GameObject startingPoint = track.transform.Find("CheckPointHolder").transform.Find("CheckPoint 0(Clone)").gameObject;
-        carGO = Instantiate(
-            carPrefab,
-            new Vector3(
-                startingPoint.transform.position.x,
-                startingPoint.transform.position.y,
-                startingPoint.transform.position.z
-            ),
-            Quaternion.identity);
+
+        carGO.transform.position = startingPoint.transform.position;
+        carGO.transform.rotation = startingPoint.transform.rotation;
+        carGO.SetActive(true);
+
     }
 }
