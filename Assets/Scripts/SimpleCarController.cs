@@ -94,23 +94,13 @@ public class SimpleCarController : MonoBehaviour
     Vector2 movementInput = Vector2.zero;
     float acceleration;
     float steering;
-    // float moving;
 
     public void Move()
     {
 
-        /*Vector2 */movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
-        /*float */acceleration = (maxMotorTorque * movementInput.y) * 0.005f;
-        /*float */steering = maxSteeringAngle * movementInput.x;
-
-        /*float *//*moving = movementInput.x + movementInput.y;*/
-
-        /*if (!driving.isPlaying && movementInput.y != 0)
-        {
-            driving.Play();
-        }*/
-
-        // movement = Boost(movement, frameCounter, frameLimit);
+        movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
+        acceleration = (maxMotorTorque * movementInput.y) * 0.005f;
+        steering = maxSteeringAngle * movementInput.x;
 
         if (controllerInput.CarControllerAM.Boost.triggered && Time.time >= timeStamp)
         {
@@ -124,6 +114,7 @@ public class SimpleCarController : MonoBehaviour
             frameCounter++;
         }
 
+        // move the car
         movement = Mathf.Clamp(movement + acceleration, -maxMotorTorque, maxMotorTorque);
 
         if (movementInput.y == 0)
@@ -136,6 +127,19 @@ public class SimpleCarController : MonoBehaviour
 
         // the smaller (maxMotorTorque * 10) is, the more steering will be dampened
         transform.Rotate(Vector3.up, Mathf.Clamp(Mathf.Lerp(steering, 0, movement / (maxMotorTorque * 25)), -maxSteeringAngle, maxSteeringAngle) * Time.deltaTime);
+
+        // Drifting
+        if (controllerInput.CarControllerAM.Spin.IsPressed())
+        {
+            if (!skid.isPlaying)
+            {
+                skid.Play();
+            }
+            movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
+
+            transform.position += transform.right * steering * movement * -0.0035f * Time.deltaTime;
+        }
+
 
         // Update wheel visuals
         foreach (AxleInfo axleInfo in axleInfos)
@@ -234,6 +238,23 @@ public class SimpleCarController : MonoBehaviour
             // Make the car accelerate in the direction it is facing
             carRigidbody.AddForce(transform.forward * motor * 0.02f, ForceMode.Acceleration);
         }
+        // Unfreeeze rotation so the car can drive properly again.
+        carRigidbody.constraints = RigidbodyConstraints.None;
+    }
+    
+    public void Drift()
+    {
+        if (controllerInput.CarControllerAM.Spin.IsPressed())
+        {
+            if (!skid.isPlaying)
+            {
+                skid.Play();
+            }
+            movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
+
+            Vector3 sidewaysMovement = transform.right * movementInput.x * 1f;
+            transform.position += sidewaysMovement * Time.deltaTime;
+        }
     }
 
     public void Spin()
@@ -249,7 +270,7 @@ public class SimpleCarController : MonoBehaviour
                 skid.Play();
             }
             // Disactivated so that both shift and space bar are not pressed at the same time. 
-            carRigidbody.AddForce(transform.up * 0.5f, ForceMode.Acceleration);
+            carRigidbody.AddForce(transform.up * 0.5f * 5f, ForceMode.Acceleration);
 
             // Make car spin like a beyblade
             carRigidbody.AddTorque(transform.up * steering * spinVal, ForceMode.Impulse);
@@ -341,16 +362,10 @@ public class SimpleCarController : MonoBehaviour
         Jump();
 
         // LeftShift or right button
-        Spin();
-
+        // Spin();
+        // Drift();
         // Used in the pitch rotation, if used then move to the function declation zone.
         // float roll = 0;
-
-        // else
-        // make the car glide if space is pressed.
-
-        // Unfreeeze rotation so the car can drive properly again.
-        carRigidbody.constraints = RigidbodyConstraints.None;
 
     }
 }
