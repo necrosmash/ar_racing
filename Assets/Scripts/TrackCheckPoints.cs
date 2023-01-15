@@ -142,7 +142,7 @@ public class TrackCheckPoints : PathSceneTool
         lowerBounds.transform.position = new Vector3(0, lowestPoint - 1, 0);
 
         // set the scale of the lower bounds to the max and min x and z
-        lowerBounds.transform.localScale = new Vector3(maxX - minX, 1, maxZ - minZ);
+        //lowerBounds.transform.localScale = new Vector3(maxX - minX, 1, maxZ - minZ);
     }
 
     void DestroyObjects()
