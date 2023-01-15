@@ -24,14 +24,16 @@ public class BottomBarrierCollision : MonoBehaviour
             // make the car have the right way up
             carRigidbody = other.gameObject.GetComponent<Rigidbody>();
             carRigidbody.rotation = Quaternion.Euler(0, 0, 0);
-
             carRigidbody.velocity = new Vector3(0, 0, 0);
 
             // Freeze the car's rotation
             carRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
             // position the car at the current checkpoint
             other.gameObject.transform.position = currentCheckpoint.transform.position;
-            other.gameObject.transform.rotation = currentCheckpoint.transform.rotation;
+            // other.gameObject.transform.rotation = currentCheckpoint.transform.rotation;
+            other.gameObject.transform.rotation = Quaternion.LookRotation(currentCheckpoint.transform.forward, Vector3.up);
+
+            other.gameObject.GetComponent<SimpleCarController>().movement = 0;
 
             // other.gameObject.transform.position = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y + 10f, other.gameObject.transform.position.z);
 
