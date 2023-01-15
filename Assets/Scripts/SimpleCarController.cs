@@ -56,8 +56,8 @@ public class SimpleCarController : MonoBehaviour
     public AudioSource crash;
     public AudioSource skid;
 
-    private int frameCounter = 10;
-    private int frameLimit = 10;
+    private int frameCounter = 5;
+    private int frameLimit = 5;
     bool boostFlag = false;
 
     private void Awake()
@@ -85,23 +85,25 @@ public class SimpleCarController : MonoBehaviour
             transform.eulerAngles.z);
 
         carRigidbody.velocity = Vector3.zero;
-        maxMotorTorque = 1.0f;
+        maxMotorTorque = 2.0f;
         maxSteeringAngle = 150;
-        boost = 300;
+        boost = 0.4f;
     }
 
-    // if currentCheckpoint changes return true
-    float mod = 0.001f;
-    float movement = 0.0f;
+    public float movement = 0.0f;
+    Vector2 movementInput = Vector2.zero;
+    float acceleration;
+    float steering;
+    // float moving;
 
     public void Move()
     {
 
-        Vector2 movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
-        float acceleration = (maxMotorTorque * movementInput.y) * 0.05f;
-        float steering = maxSteeringAngle * movementInput.x;
+        /*Vector2 */movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
+        /*float */acceleration = (maxMotorTorque * movementInput.y) * 0.005f;
+        /*float */steering = maxSteeringAngle * movementInput.x;
 
-        float moving = movementInput.x + movementInput.y;
+        /*float *//*moving = movementInput.x + movementInput.y;*/
 
         /*if (!driving.isPlaying && movementInput.y != 0)
         {
@@ -118,6 +120,7 @@ public class SimpleCarController : MonoBehaviour
         if (frameCounter < frameLimit)
         {
             movement += boost;
+            Debug.Log("Boosting!");
             frameCounter++;
         }
 
@@ -131,8 +134,8 @@ public class SimpleCarController : MonoBehaviour
         // Update car's position and rotation
         transform.position += transform.forward * movement * Time.deltaTime;
 
-        // the smaller (maxMotorTorque * 10) is, the less steering will be dampened
-        transform.Rotate(Vector3.up, Mathf.Clamp(Mathf.Lerp(steering, 0, movement / (maxMotorTorque * 5)), -maxSteeringAngle, maxSteeringAngle) * Time.deltaTime);
+        // the smaller (maxMotorTorque * 10) is, the more steering will be dampened
+        transform.Rotate(Vector3.up, Mathf.Clamp(Mathf.Lerp(steering, 0, movement / (maxMotorTorque * 25)), -maxSteeringAngle, maxSteeringAngle) * Time.deltaTime);
 
         // Update wheel visuals
         foreach (AxleInfo axleInfo in axleInfos)
