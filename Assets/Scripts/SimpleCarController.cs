@@ -56,6 +56,10 @@ public class SimpleCarController : MonoBehaviour
     public AudioSource crash;
     public AudioSource skid;
 
+    private int frameCounter = 10;
+    private int frameLimit = 10;
+    bool boostFlag = false;
+
     private void Awake()
     {
         controllerInput = new InputAsset();
@@ -94,32 +98,29 @@ public class SimpleCarController : MonoBehaviour
     {
 
         Vector2 movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
-        float acceleration = (maxMotorTorque * movementInput.y) * 0.1f;
+        float acceleration = (maxMotorTorque * movementInput.y) * 0.05f;
         float steering = maxSteeringAngle * movementInput.x;
 
         float moving = movementInput.x + movementInput.y;
 
-        if (!driving.isPlaying && movementInput.y != 0)
+        /*if (!driving.isPlaying && movementInput.y != 0)
         {
             driving.Play();
-        }
-
-
-        /*if (Input.GetKey(KeyCode.C) && Time.time >= timeStamp)
-        {
-            timeStamp = Time.time + boostCooldown;
-
-            movement += boost;
         }*/
+
+        // movement = Boost(movement, frameCounter, frameLimit);
 
         if (controllerInput.CarControllerAM.Boost.triggered && Time.time >= timeStamp)
         {
             timeStamp = Time.time + boostCooldown;
-
+            frameCounter = 0;
+        }
+        if (frameCounter < frameLimit)
+        {
             movement += boost;
+            frameCounter++;
         }
 
-        // movement = Boost(movement);
         movement = Mathf.Clamp(movement + acceleration, -maxMotorTorque, maxMotorTorque);
 
         if (movementInput.y == 0)
@@ -141,40 +142,6 @@ public class SimpleCarController : MonoBehaviour
         }
     }
 
-
-
-    /*public void Move()
-    {
-        Vector2 movementInput = controllerInput.CarControllerAM.Move.ReadValue<Vector2>();
-        float motor = maxMotorTorque * movementInput.y;
-        float steering = maxSteeringAngle * movementInput.x;
-
-        float moving = movementInput.x + movementInput.y;
-
-        if (!driving.isPlaying && moving > 0f)
-        {
-            driving.Play();
-        }
-        
-
-        foreach (AxleInfo axleInfo in axleInfos)
-        {
-            if (axleInfo.steering)
-            {
-                axleInfo.leftWheel.steerAngle = steering;
-                axleInfo.rightWheel.steerAngle = steering;
-                
-            }
-            if (axleInfo.motor)
-            {
-                axleInfo.leftWheel.motorTorque = motor;
-                axleInfo.rightWheel.motorTorque = motor;
-            }
-            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
-        }
-    }*/
-
     public bool IsGrounded()
     {
         // This does not work, would be nice though.
@@ -195,8 +162,9 @@ public class SimpleCarController : MonoBehaviour
         return true;
     }
 
+
     // Boosting
-    private float Boost(float mov)
+    /*private float Boost(float mov)
     {
         if (controllerInput.CarControllerAM.Boost.triggered && Time.time >= timeStamp)
         {
@@ -205,7 +173,7 @@ public class SimpleCarController : MonoBehaviour
             mov += boost;
         }
         return mov;
-    }
+    }*/
 
     /*public void Boost()
     {
@@ -338,7 +306,14 @@ public class SimpleCarController : MonoBehaviour
             nextCheckpoint =
                 GameObject.Find("Track").transform.Find("CheckPointHolder").transform.Find("CheckPoint 1(Clone)").GetComponent<CheckPointSingle>();
         }
+        if (boostFlag)
+        {
+            frameCounter++;
+        }
+
         //Debug.Log("ctig12 current checkpoint: " + currentCheckpoint.name);
+
+
     }
 
     public void FixedUpdate()
